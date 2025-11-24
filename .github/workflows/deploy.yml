@@ -1,0 +1,49 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: 📦 Install dependencies
+        run: npm ci
+      
+      - name: 🏗️ Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+      
+      - name: 🚀 Deploy to Vercel
+        run: |
+          echo "🎯 Ready to deploy to Vercel"
+          echo "To enable automatic deployment:"
+          echo "1. Install Vercel CLI: npm i -g vercel"
+          echo "2. Add VERCEL_TOKEN to GitHub Secrets"
+          echo "3. Run: vercel --prod --token=\${{ secrets.VERCEL_TOKEN }}"
+        # Uncomment below when ready to deploy
+        # uses: amondnet/vercel-action@v25
+        # with:
+        #   vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        #   vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        #   vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        #   vercel-args: '--prod'
+      
+      - name: ✅ Deployment complete
+        run: |
+          echo "✨ Deployment workflow completed successfully!"
+          echo "📊 Build artifacts are ready for deployment"

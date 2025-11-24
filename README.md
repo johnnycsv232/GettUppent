@@ -6,6 +6,10 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
+[![CI/CD Pipeline](https://github.com/johnnycsv232/GettUppent/actions/workflows/ci.yml/badge.svg)](https://github.com/johnnycsv232/GettUppent/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/johnnycsv232/GettUppent/actions/workflows/codeql.yml/badge.svg)](https://github.com/johnnycsv232/GettUppent/actions/workflows/codeql.yml)
+[![Deploy](https://github.com/johnnycsv232/GettUppent/actions/workflows/deploy.yml/badge.svg)](https://github.com/johnnycsv232/GettUppent/actions/workflows/deploy.yml)
+
 ---
 
 ## 📋 Overview
