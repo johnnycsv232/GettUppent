@@ -1,0 +1,12 @@
+{
+  "name": "Proof/CTA/FAQ",
+  "totalSlides": 5,
+  "purpose": "Build trust with social proof, drive action, and address objections",
+  "slideFiles": [
+    "slide_1_establish_local_authenticity.json",
+    "slide_2_emphasize_local_focus.json",
+    "slide_3_show_transformation.json",
+    "slide_4_address_objections.json",
+    "slide_5_drive_immediate_action.json"
+  ]
+}

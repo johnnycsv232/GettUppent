@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages/System - GettUpp ENT Carousel Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #D9AE43;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        .carousel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .slide {
+            background: #0B0B0D;
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1080/1350;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .slide:hover {
+            transform: translateY(-5px);
+            border-color: #D9AE43;
+        }
+        
+        .slide-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            background: linear-gradient(135deg, #D9AE43, #FF3C93);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .slide-count {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+        }
+        
+        .slide-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: auto;
+        }
+        
+        .slide-footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .purpose {
+            font-size: 12px;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        
+        .subtext {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .gold { color: #D9AE43; }
+        .pink { color: #FF3C93; }
+        
+        ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #D9AE43;
+            font-weight: bold;
+        }
+        
+        .cta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: #D9AE43;
+            text-align: center;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 4px solid #D9AE43;
+        }
+        
+        .instructions h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #D9AE43;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            list-style: decimal;
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            padding: 5px 0;
+            padding-left: 10px;
+        }
+        
+        .instructions li:before {
+            content: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Packages/System</h1>
+        <p class="subtitle">GettUpp ENT Instagram Carousel - Design Mockup</p>
+        
+        <div class="carousel-grid">
+            
+                <div class="slide" data-slide="1">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">1/6</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline pink">Packages & Content System</div><div class="subtext">Find the perfect plan for your venue</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Introduce packages concept</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="2">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">2/6</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline pink">What GettUpp ENT Does for You</div><ul><li>We show up on your busiest nights with a nightlife-specific shot list</li><li>We run everything through a pro + AI pipeline (Remini, stylized looks) with ≤ 2.3 min/photo editing</li><li>We deliver ready-to-post photos + reels in 24–72h depending on tier</li><li>Think of it like an in-house content team—without payroll</li></ul>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Explain the service</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="3">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">3/6</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="subtext">Content preview not available</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Display pricing and packages</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="4">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">4/6</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline pink">What's Included Every Night</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Detail the shot list</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="5">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">5/6</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline pink">Pipeline & Speed</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Explain the system and turnaround</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="6">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">6/6</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline gold">See proof & how to book</div><div class="subtext">Tap the right pinned post to see local results, FAQs and exactly what to DM to lock a date.</div><div class="cta">Or DM 'PILOT' right now to jump the line</div><div class="subtext pink" style="margin-top: 15px; font-weight: 600;">Only 3 pilot nights per month • Autopay via Stripe</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Transition to proof carousel</div>
+                    </div>
+                </div>
+            
+        </div>
+        
+        <div class="instructions">
+            <h3>📝 Next Steps</h3>
+            <ol>
+                <li>Review the mockups above to understand the visual flow</li>
+                <li>Use the AI generation prompts file to create actual images</li>
+                <li>Or design manually in Figma/Canva using the JSON specifications</li>
+                <li>Export final images as 1080×1350px JPEGs</li>
+                <li>Upload to Instagram and pin to profile</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
+        

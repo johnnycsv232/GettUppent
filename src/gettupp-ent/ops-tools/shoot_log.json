@@ -1,0 +1,24 @@
+[
+    {
+        "shoot_id": "S_001",
+        "client_id": "lead_001",
+        "venue": "The Loop",
+        "date": "2025-11-28",
+        "package": "Tier 1",
+        "price": 445,
+        "status": "scheduled",
+        "photographer": "Johnny Cage",
+        "notes": "Focus on the new cocktail menu."
+    },
+    {
+        "shoot_id": "S_002",
+        "client_id": "lead_002",
+        "venue": "Basement Bar",
+        "date": "2025-11-29",
+        "package": "Pilot",
+        "price": 345,
+        "status": "completed",
+        "photographer": "Johnny Cage",
+        "notes": "Crowd shots are priority."
+    }
+]

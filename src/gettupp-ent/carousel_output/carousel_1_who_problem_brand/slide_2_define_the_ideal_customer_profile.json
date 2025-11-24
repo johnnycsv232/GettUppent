@@ -1,0 +1,34 @@
+{
+  "slideNumber": 2,
+  "purpose": "Define the ideal customer profile",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Dark gradient with faint pink-purple tint",
+    "layout": "Two-column: 65% text left, 35% abstract club-lights strip right",
+    "header": {
+      "bar": "Same as slide 1",
+      "logo": "GE monogram",
+      "slideCount": "2/5"
+    },
+    "fonts": {
+      "sectionTitle": "Montserrat Bold 48px, #FF3C93, left-aligned",
+      "bodyText": "Inter Regular 28-32px, white, line-height 1.4",
+      "bullets": "Inter Regular 26-28px, white, with gold/pink arrow bullets"
+    },
+    "accents": [
+      "Micro-tag at bottom: \"01 · WHO\" (left) and \"If this sounds like you, keep swiping →\" (right)",
+      "Abstract club-lights visual on right 35%"
+    ]
+  },
+  "content": {
+    "title": "Who We Are Built For",
+    "bullets": [
+      "Bars/clubs with 5k–25k Instagram followers",
+      "DJs needing consistent content",
+      "Owners tired of random freelancers",
+      "Venues that value 24–72h delivery and predictable pricing",
+      "Best fit: Strong brands in North Loop, Warehouse District, Downtown & Uptown"
+    ]
+  },
+  "imagePrompt": "Instagram carousel slide with pink heading \"Who We Are Built For\", bullet list in white text on dark background, abstract nightclub lights on right side, professional nightlife marketing design"
+}

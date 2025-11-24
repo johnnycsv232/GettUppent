@@ -1,0 +1,43 @@
+{
+  "lastChecked": "2025-11-21T15:22:24.569Z",
+  "history": [
+    {
+      "date": "2025-11-21",
+      "visits": 36,
+      "uniqueVisitors": 30,
+      "formSubmissions": 1,
+      "avgTimeOnPage": "79s",
+      "bounceRate": "48.5%"
+    },
+    {
+      "date": "2025-11-21",
+      "visits": 48,
+      "uniqueVisitors": 28,
+      "formSubmissions": 2,
+      "avgTimeOnPage": "41s",
+      "bounceRate": "46.0%",
+      "ctaClicks": 18,
+      "scrollDepth": "64.6%"
+    },
+    {
+      "date": "2025-11-21",
+      "visits": 28,
+      "uniqueVisitors": 5,
+      "formSubmissions": 0,
+      "avgTimeOnPage": "67s",
+      "bounceRate": "48.7%",
+      "ctaClicks": 15,
+      "scrollDepth": "79.6%"
+    },
+    {
+      "date": "2025-11-21",
+      "visits": 24,
+      "uniqueVisitors": 11,
+      "formSubmissions": 1,
+      "avgTimeOnPage": "67s",
+      "bounceRate": "47.0%",
+      "ctaClicks": 10,
+      "scrollDepth": "73.7%"
+    }
+  ]
+}

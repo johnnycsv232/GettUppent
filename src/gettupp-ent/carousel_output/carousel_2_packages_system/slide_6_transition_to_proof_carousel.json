@@ -1,0 +1,30 @@
+{
+  "slideNumber": 6,
+  "purpose": "Transition to proof carousel",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "#0B0B0D with blurred Johnny Cage logo texture",
+    "layout": "Centered text with large gold arrow pointing right",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "6/6"
+    },
+    "fonts": {
+      "headline": "Montserrat Bold 48px, #D9AE43",
+      "cta": "Inter Bold 30px, #FF3C93"
+    },
+    "accents": [
+      "Large gold arrow pointing right",
+      "Footer rotates to \"Consistency\"",
+      "Scarcity note in small text"
+    ]
+  },
+  "content": {
+    "headline": "See proof & how to book",
+    "description": "Tap the right pinned post to see local results, FAQs and exactly what to DM to lock a date.",
+    "cta": "Or DM 'PILOT' right now to jump the line",
+    "scarcity": "Only 3 pilot nights per month • Autopay via Stripe"
+  },
+  "imagePrompt": "Instagram carousel slide with gold heading \"See proof & how to book\", pink CTA text, large arrow pointing right, minimal dark design with urgency messaging"
+}

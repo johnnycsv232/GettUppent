@@ -1,0 +1,12 @@
+{
+  "name": "Who/Problem/Brand",
+  "totalSlides": 5,
+  "purpose": "Introduce GettUpp ENT, define the problem, and position the brand as the solution",
+  "slideFiles": [
+    "slide_1_hook_the_audience.json",
+    "slide_2_define_the_ideal_customer_profile.json",
+    "slide_3_agitate_the_pain_point.json",
+    "slide_4_introduce_the_founder_and_system.json",
+    "slide_5_call_to_next_carousel.json"
+  ]
+}

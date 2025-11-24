@@ -1,0 +1,39 @@
+{
+  "slideNumber": 3,
+  "purpose": "Agitate the pain point",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Solid #0B0B0D with subtle hot pink vignette",
+    "layout": "Centered or left-aligned text with ample negative space",
+    "header": {
+      "bar": "Same as slide 1",
+      "logo": "GE monogram",
+      "slideCount": "3/5"
+    },
+    "fonts": {
+      "problemStatement": "Montserrat Bold Italic 60px, #FF3C93, centered",
+      "bullets": "Inter Medium 26-28px, white, with pink arrow bullets"
+    },
+    "accents": [
+      "Large question mark or broken camera icon faded in background",
+      "Pink glow behind text to simulate neon lights"
+    ]
+  },
+  "content": {
+    "problemStatement": "Tired of grainy club photos that show up a week late?",
+    "rightNow": [
+      "Random shooters popping in and out",
+      "Photos a week later—or never",
+      "Different edit style every time",
+      "No one responsible for your feed"
+    ],
+    "costYou": [
+      "A dead feed after strong nights",
+      "Less proof for promoters & booked talent",
+      "Fewer people seeing your room at its best",
+      "Thousands spent on DJs/promos but no content"
+    ],
+    "conclusion": "GettUpp ENT exists so this never happens again."
+  },
+  "imagePrompt": "Instagram carousel slide with bold pink italic text asking about grainy club photos, bullet list of problems in white, dark background with subtle neon pink glow, nightlife pain point design"
+}

@@ -1,0 +1,286 @@
+[
+  {
+    "slideId": 1,
+    "carousel": "carousel_1_who_problem_brand",
+    "slideNumber": 1,
+    "purpose": "Hook the audience",
+    "outputFilename": "carousel_1_who_problem_brand_slide_1.png",
+    "prompt": "Professional Instagram carousel slide, dark nightlife aesthetic, centered bold gold text \"The first nightlife content retainer for Minneapolis venues\" on black background with subtle pink spotlight glow, minimalist premium design, 1080x1350px",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Dark radial gradient (ink black #0B0B0D to purple-pink tint), faint nightlife photo at 10% opacity",
+      "primaryColor": "gold",
+      "fonts": {
+        "headline": "Montserrat ExtraBold 72px, #D9AE43, uppercase, letter-spacing +5",
+        "subtext": "Inter Medium 28-32px, #FF3C93"
+      }
+    }
+  },
+  {
+    "slideId": 2,
+    "carousel": "carousel_1_who_problem_brand",
+    "slideNumber": 2,
+    "purpose": "Define the ideal customer profile",
+    "outputFilename": "carousel_1_who_problem_brand_slide_2.png",
+    "prompt": "Instagram carousel slide with pink heading \"Who We Are Built For\", bullet list in white text on dark background, abstract nightclub lights on right side, professional nightlife marketing design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Dark gradient with faint pink-purple tint",
+      "primaryColor": "pink",
+      "fonts": {
+        "sectionTitle": "Montserrat Bold 48px, #FF3C93, left-aligned",
+        "bodyText": "Inter Regular 28-32px, white, line-height 1.4",
+        "bullets": "Inter Regular 26-28px, white, with gold/pink arrow bullets"
+      }
+    }
+  },
+  {
+    "slideId": 3,
+    "carousel": "carousel_1_who_problem_brand",
+    "slideNumber": 3,
+    "purpose": "Agitate the pain point",
+    "outputFilename": "carousel_1_who_problem_brand_slide_3.png",
+    "prompt": "Instagram carousel slide with bold pink italic text asking about grainy club photos, bullet list of problems in white, dark background with subtle neon pink glow, nightlife pain point design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Solid #0B0B0D with subtle hot pink vignette",
+      "primaryColor": "pink",
+      "fonts": {
+        "problemStatement": "Montserrat Bold Italic 60px, #FF3C93, centered",
+        "bullets": "Inter Medium 26-28px, white, with pink arrow bullets"
+      }
+    }
+  },
+  {
+    "slideId": 4,
+    "carousel": "carousel_1_who_problem_brand",
+    "slideNumber": 4,
+    "purpose": "Introduce the founder and system",
+    "outputFilename": "carousel_1_who_problem_brand_slide_4.png",
+    "prompt": "Instagram carousel slide with gold heading, text about Johnny Cage and AI-enhanced pipeline, distressed \"Johnny Cage\" watermark on right, dark background with gold accent glow, professional operator branding",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Dark gradient with faint warm #D9AE43 glow in corner",
+      "primaryColor": "gold",
+      "fonts": {
+        "sectionTitle": "Montserrat Bold 48-56px, #D9AE43",
+        "bodyText": "Inter Regular 28px, white",
+        "brandPillars": "Inter SemiBold 24px, #D9AE43"
+      }
+    }
+  },
+  {
+    "slideId": 5,
+    "carousel": "carousel_1_who_problem_brand",
+    "slideNumber": 5,
+    "purpose": "Call to next carousel",
+    "outputFilename": "carousel_1_who_problem_brand_slide_5.png",
+    "prompt": "Instagram carousel slide with pink text \"Ready to elevate your venue's presence?\", gold call-to-action \"NEXT: PACKAGES + SYSTEM\", large arrow pointing right, minimal dark design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Pure #0B0B0D with subtle dual-color gradient (pink-to-gold diagonal)",
+      "primaryColor": "gold",
+      "fonts": {
+        "headline": "Montserrat Bold 48-52px, #FF3C93",
+        "cta": "Inter Bold 30px, uppercase, #D9AE43"
+      }
+    }
+  },
+  {
+    "slideId": 6,
+    "carousel": "carousel_2_packages_system",
+    "slideNumber": 1,
+    "purpose": "Introduce packages concept",
+    "outputFilename": "carousel_2_packages_system_slide_1.png",
+    "prompt": "Instagram carousel cover slide, white text \"Packages & Content System\", preview of 4 package tiers below, dark background with pink and gold accents, professional pricing page design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Dark with subtle diagonal gradient (top-left faint pink, bottom-right faint gold)",
+      "primaryColor": "ink",
+      "fonts": {
+        "title": "Montserrat Bold 54px, white",
+        "packageNames": "Inter SemiBold 28px, colored by tier"
+      }
+    }
+  },
+  {
+    "slideId": 7,
+    "carousel": "carousel_2_packages_system",
+    "slideNumber": 2,
+    "purpose": "Explain the service",
+    "outputFilename": "carousel_2_packages_system_slide_2.png",
+    "prompt": "Instagram carousel slide explaining service, white bullet list on black background, small collage of nightclub photos on right, professional service description design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Pure black with soft spotlight",
+      "primaryColor": "ink",
+      "fonts": {
+        "sectionTitle": "Montserrat SemiBold 48px, white",
+        "bullets": "Inter Regular 26px, white"
+      }
+    }
+  },
+  {
+    "slideId": 8,
+    "carousel": "carousel_2_packages_system",
+    "slideNumber": 3,
+    "purpose": "Display pricing and packages",
+    "outputFilename": "carousel_2_packages_system_slide_3.png",
+    "prompt": "Instagram carousel pricing grid, 2x2 layout with 4 package tiers (Pilot $345, Tier 1 $445, Tier 2 $695, VIP $995), gold borders, dark background, professional pricing table design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "#0B0B0D with subtle texture",
+      "primaryColor": "ink",
+      "fonts": {
+        "packageTitle": "Montserrat SemiBold 48px, colored by tier",
+        "price": "Inter Bold 42px, gold",
+        "details": "Inter Regular 24px, white",
+        "badge": "Inter Bold 20px, uppercase, gold"
+      }
+    }
+  },
+  {
+    "slideId": 9,
+    "carousel": "carousel_2_packages_system",
+    "slideNumber": 4,
+    "purpose": "Detail the shot list",
+    "outputFilename": "carousel_2_packages_system_slide_4.png",
+    "prompt": "Instagram carousel slide with gold heading \"What's Included Every Night\", bullet list of shot types, small grid of sample nightclub photos on right, professional deliverables list design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Dark charcoal",
+      "primaryColor": "gold",
+      "fonts": {
+        "sectionTitle": "Montserrat Bold 48px, #D9AE43",
+        "bullets": "Inter Regular 26px, white"
+      }
+    }
+  },
+  {
+    "slideId": 10,
+    "carousel": "carousel_2_packages_system",
+    "slideNumber": 5,
+    "purpose": "Explain the system and turnaround",
+    "outputFilename": "carousel_2_packages_system_slide_5.png",
+    "prompt": "Instagram carousel timeline showing 4-step process (Shoot → Enhance → Sort → Deliver), circular icons connected by arrows, turnaround times at bottom, dark background with pink and gold accents",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "#0B0B0D with subtle pink-gold gradient",
+      "primaryColor": "gold",
+      "fonts": {
+        "sectionTitle": "Montserrat Bold 48px, white",
+        "stepTitle": "Inter Bold 28px, #FF3C93",
+        "stepDescription": "Inter Regular 24px, white",
+        "turnaroundBox": "Inter SemiBold 22px, #D9AE43"
+      }
+    }
+  },
+  {
+    "slideId": 11,
+    "carousel": "carousel_2_packages_system",
+    "slideNumber": 6,
+    "purpose": "Transition to proof carousel",
+    "outputFilename": "carousel_2_packages_system_slide_6.png",
+    "prompt": "Instagram carousel slide with gold heading \"See proof & how to book\", pink CTA text, large arrow pointing right, minimal dark design with urgency messaging",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "#0B0B0D with blurred Johnny Cage logo texture",
+      "primaryColor": "gold",
+      "fonts": {
+        "headline": "Montserrat Bold 48px, #D9AE43",
+        "cta": "Inter Bold 30px, #FF3C93"
+      }
+    }
+  },
+  {
+    "slideId": 12,
+    "carousel": "carousel_3_proof_cta",
+    "slideNumber": 1,
+    "purpose": "Establish local authenticity",
+    "outputFilename": "carousel_3_proof_cta_slide_1.png",
+    "prompt": "Instagram carousel cover with bold gold text \"Built inside MPLS nightlife\", gritty distressed texture background, authentic local branding design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Distressed Johnny Cage logo as darkened background",
+      "primaryColor": "gold",
+      "fonts": {
+        "headline": "Montserrat Black 60px, #D9AE43",
+        "subtext": "Inter Medium 28px, white",
+        "label": "Inter Bold 24px, #FF3C93"
+      }
+    }
+  },
+  {
+    "slideId": 13,
+    "carousel": "carousel_3_proof_cta",
+    "slideNumber": 2,
+    "purpose": "Emphasize local focus",
+    "outputFilename": "carousel_3_proof_cta_slide_2.png",
+    "prompt": "Instagram carousel slide with pink heading \"We Only Shoot Your Scene\", list of Minneapolis neighborhoods in gold, abstract city skyline on right, local focus design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "Dark with abstract map or skyline graphic on right",
+      "primaryColor": "gold",
+      "fonts": {
+        "sectionTitle": "Montserrat Bold 48px, #FF3C93",
+        "bodyText": "Inter Regular 28px, white",
+        "neighborhoods": "Inter SemiBold 24px, #D9AE43"
+      }
+    }
+  },
+  {
+    "slideId": 14,
+    "carousel": "carousel_3_proof_cta",
+    "slideNumber": 3,
+    "purpose": "Show transformation",
+    "outputFilename": "carousel_3_proof_cta_slide_3.png",
+    "prompt": "Instagram carousel with before/after comparison cards, red \"Before\" section showing problems, gold \"After\" section showing solutions, proof statistics at bottom, transformation design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "#0B0B0D",
+      "primaryColor": "gold",
+      "fonts": {
+        "cardTitle": "Montserrat Bold 36px, red/orange for Before, gold/pink for After",
+        "bullets": "Inter Regular 24px, white",
+        "proofStat": "Montserrat ExtraBold 48px, #D9AE43"
+      }
+    }
+  },
+  {
+    "slideId": 15,
+    "carousel": "carousel_3_proof_cta",
+    "slideNumber": 4,
+    "purpose": "Address objections",
+    "outputFilename": "carousel_3_proof_cta_slide_4.png",
+    "prompt": "Instagram carousel FAQ slide with gold questions and white answers, 4 common questions stacked vertically, thin gold separators, dark background, professional Q&A design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "#0B0B0D",
+      "primaryColor": "gold",
+      "fonts": {
+        "question": "Inter Bold 26px, #D9AE43",
+        "answer": "Inter Regular 24px, white",
+        "note": "Inter Italic 22px, gray"
+      }
+    }
+  },
+  {
+    "slideId": 16,
+    "carousel": "carousel_3_proof_cta",
+    "slideNumber": 5,
+    "purpose": "Drive immediate action",
+    "outputFilename": "carousel_3_proof_cta_slide_5.png",
+    "prompt": "Instagram carousel CTA slide with huge gold text \"DM PILOT\", white card on dark background with gold glow, clear instructions, urgency messaging about limited spots, conversion-focused design",
+    "designSpecs": {
+      "dimensions": "1080x1350",
+      "background": "#0B0B0D with subtle gold/pink glow around CTA card",
+      "primaryColor": "gold",
+      "fonts": {
+        "headline": "Montserrat Black 56px, #D9AE43",
+        "bodyText": "Inter Regular 26px, white",
+        "cta": "Montserrat Bold 80px, #D9AE43, uppercase",
+        "scarcity": "Inter SemiBold 24px, #FF3C93"
+      }
+    }
+  }
+]

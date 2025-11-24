@@ -1,0 +1,28 @@
+{
+  "slideNumber": 1,
+  "purpose": "Hook the audience",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Dark radial gradient (ink black #0B0B0D to purple-pink tint), faint nightlife photo at 10% opacity",
+    "layout": "Centered composition with 100px margins",
+    "header": {
+      "bar": "Black semi-transparent strip 90-100px tall at top",
+      "logo": "GE monogram (gold/pink) 40px height, left-aligned",
+      "slideCount": "1/5 in Inter Bold 18px, white, right-aligned"
+    },
+    "fonts": {
+      "headline": "Montserrat ExtraBold 72px, #D9AE43, uppercase, letter-spacing +5",
+      "subtext": "Inter Medium 28-32px, #FF3C93"
+    },
+    "accents": [
+      "Spotlight glow effect behind headline (radial gradient)",
+      "Small arrow icon (30px, gold/white) on far right edge at mid-height",
+      "Large translucent GettUpp ENT wordmark watermark at 5-10% opacity"
+    ]
+  },
+  "content": {
+    "headline": "The first nightlife content retainer for Minneapolis venues.",
+    "subtext": "Nightlife photos + reels for MPLS bars, clubs & DJs."
+  },
+  "imagePrompt": "Professional Instagram carousel slide, dark nightlife aesthetic, centered bold gold text \"The first nightlife content retainer for Minneapolis venues\" on black background with subtle pink spotlight glow, minimalist premium design, 1080x1350px"
+}

@@ -1,0 +1,43 @@
+{
+  "slideNumber": 3,
+  "purpose": "Show transformation",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "#0B0B0D",
+    "layout": "Two equal-sized cards side by side (Before/After)",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "3/5"
+    },
+    "fonts": {
+      "cardTitle": "Montserrat Bold 36px, red/orange for Before, gold/pink for After",
+      "bullets": "Inter Regular 24px, white",
+      "proofStat": "Montserrat ExtraBold 48px, #D9AE43"
+    },
+    "accents": [
+      "Before card: red/orange accent",
+      "After card: gold/pink accent",
+      "Footer rotates to \"Results in your metrics\""
+    ]
+  },
+  "content": {
+    "before": [
+      "1 post a week",
+      "Mixed angles/quality",
+      "Photos arrive late or never",
+      "No one accountable for your feed"
+    ],
+    "after": [
+      "2–4 posts per weekend",
+      "Consistent look",
+      "24–72h turnaround depending on tier",
+      "One operator responsible"
+    ],
+    "proof": {
+      "profileVisits": "+32% profile visits in 30 days",
+      "views": "79.7k views in 90 days"
+    }
+  },
+  "imagePrompt": "Instagram carousel with before/after comparison cards, red \"Before\" section showing problems, gold \"After\" section showing solutions, proof statistics at bottom, transformation design"
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "id": "lead_001",
+    "venue": "The Loop",
+    "name": "Mike",
+    "role": "GM",
+    "instagram": "theloopmpls",
+    "email": "mike@theloop.com",
+    "status": "ready_for_outreach",
+    "submitted_at": "2025-11-21T10:00:00Z",
+    "tags": [],
+    "processed_at": "2025-11-21T14:48:07.922Z"
+  },
+  {
+    "id": "lead_002",
+    "venue": "Basement Bar",
+    "name": "Sarah",
+    "role": "Owner",
+    "instagram": "basement_bar_mn",
+    "email": "sarah@gmail.com",
+    "status": "ready_for_outreach",
+    "submitted_at": "2025-11-21T11:30:00Z",
+    "tags": [
+      "Bar",
+      "Decision Maker"
+    ],
+    "processed_at": "2025-11-21T14:48:07.923Z"
+  },
+  {
+    "venue": "The Basement",
+    "instagram": "basementmpls",
+    "tags": [],
+    "status": "ready_for_outreach",
+    "date_found": "2025-11-21",
+    "processed_at": "2025-11-21T14:48:07.923Z"
+  },
+  {
+    "venue": "Rooftop 612",
+    "instagram": "rooftop612",
+    "tags": [],
+    "status": "ready_for_outreach",
+    "date_found": "2025-11-21",
+    "processed_at": "2025-11-21T14:48:07.923Z"
+  }
+]

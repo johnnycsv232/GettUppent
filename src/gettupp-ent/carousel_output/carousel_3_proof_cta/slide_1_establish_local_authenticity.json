@@ -1,0 +1,29 @@
+{
+  "slideNumber": 1,
+  "purpose": "Establish local authenticity",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Distressed Johnny Cage logo as darkened background",
+    "layout": "Centered headline with gritty texture",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "1/5"
+    },
+    "fonts": {
+      "headline": "Montserrat Black 60px, #D9AE43",
+      "subtext": "Inter Medium 28px, white",
+      "label": "Inter Bold 24px, #FF3C93"
+    },
+    "accents": [
+      "Gritty distressed texture for authenticity",
+      "Label: \"03 · Proof & Booking\""
+    ]
+  },
+  "content": {
+    "headline": "Built inside MPLS nightlife",
+    "subtext": "Proof, FAQs & how to book your first night",
+    "label": "03 · Proof & Booking"
+  },
+  "imagePrompt": "Instagram carousel cover with bold gold text \"Built inside MPLS nightlife\", gritty distressed texture background, authentic local branding design"
+}

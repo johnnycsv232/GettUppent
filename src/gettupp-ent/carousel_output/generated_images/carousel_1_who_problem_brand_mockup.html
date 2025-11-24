@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who/Problem/Brand - GettUpp ENT Carousel Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #D9AE43;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        .carousel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .slide {
+            background: #0B0B0D;
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1080/1350;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .slide:hover {
+            transform: translateY(-5px);
+            border-color: #D9AE43;
+        }
+        
+        .slide-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            background: linear-gradient(135deg, #D9AE43, #FF3C93);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .slide-count {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+        }
+        
+        .slide-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: auto;
+        }
+        
+        .slide-footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .purpose {
+            font-size: 12px;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        
+        .subtext {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .gold { color: #D9AE43; }
+        .pink { color: #FF3C93; }
+        
+        ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #D9AE43;
+            font-weight: bold;
+        }
+        
+        .cta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: #D9AE43;
+            text-align: center;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 4px solid #D9AE43;
+        }
+        
+        .instructions h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #D9AE43;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            list-style: decimal;
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            padding: 5px 0;
+            padding-left: 10px;
+        }
+        
+        .instructions li:before {
+            content: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Who/Problem/Brand</h1>
+        <p class="subtitle">GettUpp ENT Instagram Carousel - Design Mockup</p>
+        
+        <div class="carousel-grid">
+            
+                <div class="slide" data-slide="1">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">1/5</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline gold">The first nightlife content retainer for Minneapolis venues.</div><div class="subtext">Nightlife photos + reels for MPLS bars, clubs & DJs.</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Hook the audience</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="2">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">2/5</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline pink">Who We Are Built For</div><ul><li>Bars/clubs with 5k–25k Instagram followers</li><li>DJs needing consistent content</li><li>Owners tired of random freelancers</li><li>Venues that value 24–72h delivery and predictable pricing</li><li>Best fit: Strong brands in North Loop, Warehouse District, Downtown & Uptown</li></ul>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Define the ideal customer profile</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="3">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">3/5</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="subtext">Content preview not available</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Agitate the pain point</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="4">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">4/5</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline pink">Who's Behind GettUpp ENT?</div><div class="subtext">Johnny Cage runs the operation: one shooter, one system, AI-enhanced pipeline (edit time ≤ 2.3 min/photo, turnaround 24–72h).</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Introduce the founder and system</div>
+                    </div>
+                </div>
+            
+                <div class="slide" data-slide="5">
+                    <div class="slide-header">
+                        <div class="logo">GE</div>
+                        <div class="slide-count">5/5</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="headline gold">Ready to elevate your venue's presence?</div><div class="cta">NEXT: PACKAGES + SYSTEM →</div>
+                    </div>
+                    <div class="slide-footer">
+                        <div class="purpose">Call to next carousel</div>
+                    </div>
+                </div>
+            
+        </div>
+        
+        <div class="instructions">
+            <h3>📝 Next Steps</h3>
+            <ol>
+                <li>Review the mockups above to understand the visual flow</li>
+                <li>Use the AI generation prompts file to create actual images</li>
+                <li>Or design manually in Figma/Canva using the JSON specifications</li>
+                <li>Export final images as 1080×1350px JPEGs</li>
+                <li>Upload to Instagram and pin to profile</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
+        

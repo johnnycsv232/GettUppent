@@ -1,0 +1,13 @@
+{
+  "name": "Packages/System",
+  "totalSlides": 6,
+  "purpose": "Present service packages and explain the content subscription system",
+  "slideFiles": [
+    "slide_1_introduce_packages_concept.json",
+    "slide_2_explain_the_service.json",
+    "slide_3_display_pricing_and_packages.json",
+    "slide_4_detail_the_shot_list.json",
+    "slide_5_explain_the_system_and_turnaround.json",
+    "slide_6_transition_to_proof_carousel.json"
+  ]
+}

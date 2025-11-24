@@ -1,0 +1,93 @@
+{
+  "slideNumber": 3,
+  "purpose": "Display pricing and packages",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "#0B0B0D with subtle texture",
+    "layout": "2×2 grid of package cards with thin gold borders",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "3/6"
+    },
+    "fonts": {
+      "packageTitle": "Montserrat SemiBold 48px, colored by tier",
+      "price": "Inter Bold 42px, gold",
+      "details": "Inter Regular 24px, white",
+      "badge": "Inter Bold 20px, uppercase, gold"
+    },
+    "accents": [
+      "Each card has thin gold border and slightly lighter background",
+      "Pilot card has pink accent, VIP has gold accent",
+      "Note at bottom: \"Soft-launch pricing • Locked for early venues\""
+    ]
+  },
+  "content": {
+    "packages": {
+      "pilot": {
+        "name": "Pilot",
+        "price": 345,
+        "type": "one-time",
+        "deliverables": [
+          "1 Shoot",
+          "30 Photos",
+          "72h Delivery"
+        ],
+        "limit": "3 per month",
+        "assets": 30,
+        "costPerAsset": "11.50",
+        "bestFor": "Testing the service",
+        "badge": "Invite-Only"
+      },
+      "tier1": {
+        "name": "Tier 1",
+        "displayName": "Friday Nights",
+        "price": 445,
+        "type": "monthly",
+        "deliverables": [
+          "1 Shoot / Month",
+          "30 Photos",
+          "0 Reels"
+        ],
+        "assets": 30,
+        "costPerAsset": "14.83",
+        "postsPerMonth": "8-12",
+        "bestFor": "Small venues, single night focus"
+      },
+      "tier2": {
+        "name": "Tier 2",
+        "displayName": "Weekend Warrior",
+        "price": 695,
+        "type": "monthly",
+        "deliverables": [
+          "2 Shoots / Month",
+          "60 Photos",
+          "2 Reels"
+        ],
+        "assets": 62,
+        "costPerAsset": "11.21",
+        "postsPerMonth": "20-30",
+        "costPerPost": "23-35",
+        "bestFor": "Active venues, weekend coverage",
+        "badge": "Most Popular"
+      },
+      "vip": {
+        "name": "VIP",
+        "displayName": "VIP Partner",
+        "price": 995,
+        "type": "monthly",
+        "deliverables": [
+          "3 Shoots / Month",
+          "80 Photos",
+          "3 Reels"
+        ],
+        "assets": 83,
+        "costPerAsset": "11.99",
+        "postsPerMonth": "30-40",
+        "bestFor": "Premium venues, full week coverage",
+        "badge": "Premium"
+      }
+    }
+  },
+  "imagePrompt": "Instagram carousel pricing grid, 2x2 layout with 4 package tiers (Pilot $345, Tier 1 $445, Tier 2 $695, VIP $995), gold borders, dark background, professional pricing table design"
+}

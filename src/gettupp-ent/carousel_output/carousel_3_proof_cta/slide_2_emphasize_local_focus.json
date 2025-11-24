@@ -1,0 +1,35 @@
+{
+  "slideNumber": 2,
+  "purpose": "Emphasize local focus",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Dark with abstract map or skyline graphic on right",
+    "layout": "Two-column: text left, graphic right",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "2/5"
+    },
+    "fonts": {
+      "sectionTitle": "Montserrat Bold 48px, #FF3C93",
+      "bodyText": "Inter Regular 28px, white",
+      "neighborhoods": "Inter SemiBold 24px, #D9AE43"
+    },
+    "accents": [
+      "Abstract Minneapolis skyline or map on right 40%",
+      "Low-opacity GettUpp Girls logo as Easter egg"
+    ]
+  },
+  "content": {
+    "title": "We Only Shoot Your Scene",
+    "neighborhoods": [
+      "North Loop",
+      "Warehouse District",
+      "Downtown",
+      "Uptown",
+      "St. Paul"
+    ],
+    "description": "We're not bouncing between weddings and corporate headshots. GettUpp ENT is built for nightlife content—period."
+  },
+  "imagePrompt": "Instagram carousel slide with pink heading \"We Only Shoot Your Scene\", list of Minneapolis neighborhoods in gold, abstract city skyline on right, local focus design"
+}

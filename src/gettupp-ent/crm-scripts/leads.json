@@ -1,0 +1,72 @@
+[
+  {
+    "id": "lead_001",
+    "venue": "The Loop",
+    "name": "Mike",
+    "role": "GM",
+    "instagram": "theloopmpls",
+    "email": "mike@theloop.com",
+    "status": "new",
+    "submitted_at": "2025-11-21T10:00:00Z"
+  },
+  {
+    "id": "lead_002",
+    "venue": "Basement Bar",
+    "name": "Sarah",
+    "role": "Owner",
+    "instagram": "@basement_bar_mn",
+    "email": "sarah@gmail.com",
+    "status": "new",
+    "submitted_at": "2025-11-21T11:30:00Z"
+  },
+  {
+    "venue": "The Basement",
+    "instagram": "basementmpls",
+    "tags": [
+      "Club",
+      "Underground"
+    ],
+    "status": "new",
+    "date_found": "2025-11-21"
+  },
+  {
+    "venue": "Rooftop 612",
+    "instagram": "rooftop612",
+    "tags": [
+      "Bar",
+      "View"
+    ],
+    "status": "new",
+    "date_found": "2025-11-21"
+  },
+  {
+    "venue": "Vibe Room",
+    "instagram": "viberoom_ent",
+    "tags": [
+      "Club",
+      "HipHop"
+    ],
+    "status": "new",
+    "date_found": "2025-11-21"
+  },
+  {
+    "venue": "Pourhouse",
+    "instagram": "thepourhouse",
+    "tags": [
+      "Bar",
+      "Live Music"
+    ],
+    "status": "new",
+    "date_found": "2025-11-21"
+  },
+  {
+    "venue": "Neon Tiger",
+    "instagram": "neontiger_mpls",
+    "tags": [
+      "Lounge",
+      "New"
+    ],
+    "status": "new",
+    "date_found": "2025-11-21"
+  }
+]

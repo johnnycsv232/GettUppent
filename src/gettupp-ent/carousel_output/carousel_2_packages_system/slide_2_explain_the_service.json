@@ -1,0 +1,32 @@
+{
+  "slideNumber": 2,
+  "purpose": "Explain the service",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Pure black with soft spotlight",
+    "layout": "Text with mini collage of past posts",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "2/6"
+    },
+    "fonts": {
+      "sectionTitle": "Montserrat SemiBold 48px, white",
+      "bullets": "Inter Regular 26px, white"
+    },
+    "accents": [
+      "Footer rotates to \"Consistency on the feed\"",
+      "Mini collage of sample photos on right 35%"
+    ]
+  },
+  "content": {
+    "title": "What GettUpp ENT Does for You",
+    "bullets": [
+      "We show up on your busiest nights with a nightlife-specific shot list",
+      "We run everything through a pro + AI pipeline (Remini, stylized looks) with ≤ 2.3 min/photo editing",
+      "We deliver ready-to-post photos + reels in 24–72h depending on tier",
+      "Think of it like an in-house content team—without payroll"
+    ]
+  },
+  "imagePrompt": "Instagram carousel slide explaining service, white bullet list on black background, small collage of nightclub photos on right, professional service description design"
+}

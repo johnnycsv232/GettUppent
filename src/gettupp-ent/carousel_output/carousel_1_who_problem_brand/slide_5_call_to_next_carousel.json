@@ -1,0 +1,28 @@
+{
+  "slideNumber": 5,
+  "purpose": "Call to next carousel",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Pure #0B0B0D with subtle dual-color gradient (pink-to-gold diagonal)",
+    "layout": "Centered text with large margins (100px all around)",
+    "header": {
+      "bar": "Same as slide 1",
+      "logo": "GE monogram",
+      "slideCount": "5/5"
+    },
+    "fonts": {
+      "headline": "Montserrat Bold 48-52px, #FF3C93",
+      "cta": "Inter Bold 30px, uppercase, #D9AE43"
+    },
+    "accents": [
+      "Large gold arrow pointing right on far right side",
+      "Giant translucent GE monogram in center background at 30% opacity"
+    ]
+  },
+  "content": {
+    "headline": "Ready to elevate your venue's presence?",
+    "cta": "NEXT: PACKAGES + SYSTEM →",
+    "note": "Tap the middle pinned post for all monthly packages, deliverables, and turnaround times."
+  },
+  "imagePrompt": "Instagram carousel slide with pink text \"Ready to elevate your venue's presence?\", gold call-to-action \"NEXT: PACKAGES + SYSTEM\", large arrow pointing right, minimal dark design"
+}

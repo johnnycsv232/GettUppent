@@ -1,0 +1,54 @@
+{
+  "slideNumber": 5,
+  "purpose": "Explain the system and turnaround",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "#0B0B0D with subtle pink-gold gradient",
+    "layout": "Horizontal timeline with circular icons and arrows",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "5/6"
+    },
+    "fonts": {
+      "sectionTitle": "Montserrat Bold 48px, white",
+      "stepTitle": "Inter Bold 28px, #FF3C93",
+      "stepDescription": "Inter Regular 24px, white",
+      "turnaroundBox": "Inter SemiBold 22px, #D9AE43"
+    },
+    "accents": [
+      "Circular icons for each step (camera, computer, phone, repeat)",
+      "Arrows connecting steps in pink/gold",
+      "Turnaround times box at bottom"
+    ]
+  },
+  "content": {
+    "title": "Pipeline & Speed",
+    "steps": [
+      {
+        "step": "Shoot",
+        "description": "Capture your venue at peak energy"
+      },
+      {
+        "step": "Enhance",
+        "description": "Pro + AI tools (Remini, stylized looks)"
+      },
+      {
+        "step": "Sort",
+        "description": "By vibe: crowd, bar, staff, DJ, details"
+      },
+      {
+        "step": "Deliver",
+        "description": "Gallery link ready to post"
+      }
+    ],
+    "turnarounds": {
+      "pilot": "≤ 72h",
+      "tier1": "≤ 72h",
+      "tier2": "≤ 48h",
+      "vip": "24-48h"
+    },
+    "note": "Automation (ShotClock) keeps deadlines honest. Admin time ≤ 75 min per client."
+  },
+  "imagePrompt": "Instagram carousel timeline showing 4-step process (Shoot → Enhance → Sort → Deliver), circular icons connected by arrows, turnaround times at bottom, dark background with pink and gold accents"
+}

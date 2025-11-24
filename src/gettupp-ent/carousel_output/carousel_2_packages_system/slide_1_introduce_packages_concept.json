@@ -1,0 +1,33 @@
+{
+  "slideNumber": 1,
+  "purpose": "Introduce packages concept",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Dark with subtle diagonal gradient (top-left faint pink, bottom-right faint gold)",
+    "layout": "Centered title with package name preview row below",
+    "header": {
+      "bar": "Same header bar style",
+      "logo": "GE monogram",
+      "slideCount": "1/6"
+    },
+    "fonts": {
+      "title": "Montserrat Bold 54px, white",
+      "packageNames": "Inter SemiBold 28px, colored by tier"
+    },
+    "accents": [
+      "Horizontal row showing: Pilot (pink) | Tier 1 | Tier 2 | VIP (gold)",
+      "Faint GE monogram pattern in background"
+    ]
+  },
+  "content": {
+    "title": "Packages & Content System",
+    "subtitle": "Find the perfect plan for your venue",
+    "packages": [
+      "Pilot",
+      "Tier 1",
+      "Tier 2",
+      "VIP"
+    ]
+  },
+  "imagePrompt": "Instagram carousel cover slide, white text \"Packages & Content System\", preview of 4 package tiers below, dark background with pink and gold accents, professional pricing page design"
+}

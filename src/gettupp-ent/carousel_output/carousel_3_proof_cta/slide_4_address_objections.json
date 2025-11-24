@@ -1,0 +1,45 @@
+{
+  "slideNumber": 4,
+  "purpose": "Address objections",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "#0B0B0D",
+    "layout": "Stacked FAQ items with gold questions and white answers",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "4/5"
+    },
+    "fonts": {
+      "question": "Inter Bold 26px, #D9AE43",
+      "answer": "Inter Regular 24px, white",
+      "note": "Inter Italic 22px, gray"
+    },
+    "accents": [
+      "Thin gold separators between FAQ items",
+      "Footer note: \"Full terms handled in DMs and contract\""
+    ]
+  },
+  "content": {
+    "faqs": [
+      {
+        "q": "Do we have to sign a long contract?",
+        "a": "No; start with a pilot; month-to-month retainer with clear cancellation window."
+      },
+      {
+        "q": "What if we need to reschedule?",
+        "a": "One rollover included; <48h cancellation = 50% fee; <24h = 75% fee."
+      },
+      {
+        "q": "Do we have to take video?",
+        "a": "Reels are optional but recommended; packages can be tuned."
+      },
+      {
+        "q": "How do payments work?",
+        "a": "Autopay via Stripe; Net-7 available; Pilot charged upfront; retainer via subscription. ACH clients get a small discount."
+      }
+    ],
+    "note": "Full terms handled in DMs and contract"
+  },
+  "imagePrompt": "Instagram carousel FAQ slide with gold questions and white answers, 4 common questions stacked vertically, thin gold separators, dark background, professional Q&A design"
+}

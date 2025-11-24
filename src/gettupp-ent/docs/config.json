@@ -1,0 +1,80 @@
+{
+    "business": {
+        "name": "GettUpp ENT",
+        "domain": "gettupp.com",
+        "contact_email": "book@gettupp.com",
+        "mission": "Deliver predictable, AI-enhanced nightlife content that drives venue revenue through speed, consistency, and measurable results."
+    },
+    "pricing": {
+        "pilot_night": {
+            "price": 345,
+            "currency": "USD",
+            "deliverables": [
+                "1 Shoot",
+                "30 Photos",
+                "72h Delivery"
+            ],
+            "limit": "3 per month",
+            "sla_hours": 72
+        },
+        "tier_1": {
+            "name": "Friday Nights",
+            "price": 445,
+            "currency": "USD",
+            "billing": "monthly",
+            "deliverables": [
+                "1 Shoot / Month",
+                "30 Photos",
+                "0 Reels"
+            ],
+            "sla_hours": 72
+        },
+        "tier_2": {
+            "name": "Weekend Warrior",
+            "price": 695,
+            "currency": "USD",
+            "billing": "monthly",
+            "deliverables": [
+                "2 Shoots / Month",
+                "60 Photos",
+                "2 Reels"
+            ],
+            "sla_hours": 48
+        },
+        "tier_3": {
+            "name": "VIP Partner",
+            "price": 995,
+            "currency": "USD",
+            "billing": "monthly",
+            "deliverables": [
+                "3 Shoots / Month",
+                "80 Photos",
+                "3 Reels"
+            ],
+            "sla_hours": 24
+        }
+    },
+    "addons": [
+        {
+            "name": "Long 60s video",
+            "price": "199-249"
+        },
+        {
+            "name": "Extra batched shoot",
+            "price": 275
+        },
+        {
+            "name": "Extra short reel",
+            "price": "149-249"
+        },
+        {
+            "name": "Rush delivery",
+            "price": "50-100"
+        }
+    ],
+    "links": {
+        "booking_form": "/book",
+        "instagram": "https://instagram.com/gettupp_ent",
+        "portfolio_gallery": "/gallery"
+    }
+}

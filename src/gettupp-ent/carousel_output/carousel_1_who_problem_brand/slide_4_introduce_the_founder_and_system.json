@@ -1,0 +1,34 @@
+{
+  "slideNumber": 4,
+  "purpose": "Introduce the founder and system",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "Dark gradient with faint warm #D9AE43 glow in corner",
+    "layout": "Split: 60% text left, 40% large distressed \"Johnny Cage\" mark right at reduced opacity",
+    "header": {
+      "bar": "Same as slide 1",
+      "logo": "GE monogram",
+      "slideCount": "4/5"
+    },
+    "fonts": {
+      "sectionTitle": "Montserrat Bold 48-56px, #D9AE43",
+      "bodyText": "Inter Regular 28px, white",
+      "brandPillars": "Inter SemiBold 24px, #D9AE43"
+    },
+    "accents": [
+      "Footer shows social handles",
+      "Brand pillars: Energy · Consistency · Results"
+    ]
+  },
+  "content": {
+    "title": "Who's Behind GettUpp ENT?",
+    "description": "Johnny Cage runs the operation: one shooter, one system, AI-enhanced pipeline (edit time ≤ 2.3 min/photo, turnaround 24–72h).",
+    "brandPillars": [
+      "Energy",
+      "Consistency",
+      "Measurable Results"
+    ],
+    "location": "Minneapolis nightlife focus"
+  },
+  "imagePrompt": "Instagram carousel slide with gold heading, text about Johnny Cage and AI-enhanced pipeline, distressed \"Johnny Cage\" watermark on right, dark background with gold accent glow, professional operator branding"
+}

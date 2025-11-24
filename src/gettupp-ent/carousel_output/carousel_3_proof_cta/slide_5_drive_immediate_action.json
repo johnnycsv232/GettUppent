@@ -1,0 +1,33 @@
+{
+  "slideNumber": 5,
+  "purpose": "Drive immediate action",
+  "dimensions": "1080x1350",
+  "design": {
+    "background": "#0B0B0D with subtle gold/pink glow around CTA card",
+    "layout": "Bright white card on dark background, centered",
+    "header": {
+      "bar": "Same header bar",
+      "logo": "GE monogram",
+      "slideCount": "5/5"
+    },
+    "fonts": {
+      "headline": "Montserrat Black 56px, #D9AE43",
+      "bodyText": "Inter Regular 26px, white",
+      "cta": "Montserrat Bold 80px, #D9AE43, uppercase",
+      "scarcity": "Inter SemiBold 24px, #FF3C93"
+    },
+    "accents": [
+      "Bright white card with gold/pink glow",
+      "Small Johnny Cage stamp at bottom",
+      "Footer rotates to \"Results\""
+    ]
+  },
+  "content": {
+    "headline": "Ready to test it on a real night?",
+    "cta": "DM 'PILOT'",
+    "instructions": "DM 'PILOT' with your venue name, your busiest night (Thu–Sun) and what you want more of (bottles, cover, events). I'll reply personally with availability, a quick plan and a Stripe link.",
+    "scarcity": "Spots: 3 Pilot Nights per month",
+    "note": "ACH clients get a small discount because fees are lower than credit cards. If the pilot works, we switch on a Stripe subscription so you never chase invoices again."
+  },
+  "imagePrompt": "Instagram carousel CTA slide with huge gold text \"DM PILOT\", white card on dark background with gold glow, clear instructions, urgency messaging about limited spots, conversion-focused design"
+}
