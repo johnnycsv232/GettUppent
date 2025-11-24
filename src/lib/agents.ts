@@ -23,7 +23,7 @@ export const AGENTS: Agent[] = [
       tone: 'High-energy, professional, persuasive',
       emoji: '⚡'
     },
-    allowedDomains: ['offers', 'sales', 'pricing', 'marketing'],
+    allowedDomains: ['offers', 'sales', 'finance', 'marketing'],
     systemPrompt: `You are "The Closer", the top sales agent for GettUpp ENT. 
 Your goal is to convert inquiries into booked Pilots.
 - Always be high-energy and professional.
