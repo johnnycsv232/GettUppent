@@ -26,9 +26,9 @@ export function KnowledgeTable({ data, onEdit, onDelete, selectedIds = [], onSel
 
     const filteredData = data.filter(node => {
         const matchesSearch =
-            node.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            node.sub_topic.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            node.tags.toLowerCase().includes(searchTerm.toLowerCase());
+            (node.content || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (node.sub_topic || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (node.tags || '').toLowerCase().includes(searchTerm.toLowerCase());
 
         const matchesDomain = filterDomain === 'all' || node.domain_area === filterDomain;
         const matchesType = filterType === 'all' || node.knowledge_type === filterType;
@@ -227,8 +227,8 @@ export function KnowledgeTable({ data, onEdit, onDelete, selectedIds = [], onSel
                                         </td>
                                     )}
                                     <td className="p-4 max-w-md">
-                                        <div className="font-bold text-white mb-1">{node.sub_topic}</div>
-                                        <div className="text-gray-400 truncate text-xs">{node.content}</div>
+                                        <div className="font-bold text-white mb-1">{node.sub_topic || 'Untitled'}</div>
+                                        <div className="text-gray-400 truncate text-xs">{node.content || ''}</div>
                                         {node.tags && (
                                             <div className="flex flex-wrap gap-1 mt-2">
                                                 {node.tags.split(',').slice(0, 3).map((tag: string, i: number) => (

@@ -1,7 +1,7 @@
 'use client';
 
 import { KnowledgeNode } from '@/types/knowledge';
-import { TrendingUp, Database, Clock, Tag } from 'lucide-react';
+import { TrendingUp, Database, Clock, Tag, CheckCircle } from 'lucide-react';
 import { useMemo } from 'react';
 
 interface AnalyticsDashboardProps {
@@ -69,7 +69,7 @@ export function AnalyticsDashboard({ data }: AnalyticsDashboardProps) {
                         <CheckCircle className="h-6 w-6" />
                     </div>
                     <div className="text-xs text-gray-500">
-                        {((stats.active / stats.total) * 100).toFixed(0)}%
+                        {stats.total > 0 ? ((stats.active / stats.total) * 100).toFixed(0) : 0}%
                     </div>
                 </div>
                 <div className="text-3xl font-bold text-white mb-1">{stats.active}</div>
@@ -83,7 +83,7 @@ export function AnalyticsDashboard({ data }: AnalyticsDashboardProps) {
                         <Clock className="h-6 w-6" />
                     </div>
                     <div className="text-xs text-gray-500">
-                        {((stats.draft / stats.total) * 100).toFixed(0)}%
+                        {stats.total > 0 ? ((stats.draft / stats.total) * 100).toFixed(0) : 0}%
                     </div>
                 </div>
                 <div className="text-3xl font-bold text-white mb-1">{stats.draft}</div>
@@ -156,5 +156,4 @@ export function AnalyticsDashboard({ data }: AnalyticsDashboardProps) {
     );
 }
 
-// Missing import
-import { CheckCircle } from 'lucide-react';
+

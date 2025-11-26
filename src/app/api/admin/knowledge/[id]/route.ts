@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateAuth } from '@/lib/auth-api';
-import { db } from '@/lib/firebase';
-import { doc, getDoc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { adminDb } from '@/lib/firebase-admin';
 import { KnowledgeNode } from '@/types/knowledge';
 
 // 🔐 PUT - Update knowledge node (requires auth)
@@ -13,24 +12,25 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     }
 
     try {
+        const db = adminDb();
         const id = params.id;
         const body = await req.json();
         
-        const docRef = doc(db, 'knowledge_base', id);
-        const docSnap = await getDoc(docRef);
+        const docRef = db.collection('knowledge_base').doc(id);
+        const docSnap = await docRef.get();
         
-        if (!docSnap.exists()) {
+        if (!docSnap.exists) {
             return NextResponse.json({ success: false, error: 'Node not found' }, { status: 404 });
         }
 
         // Update the node
-        await updateDoc(docRef, {
+        await docRef.update({
             ...body,
             updated_at: new Date().toISOString()
         });
         
         // Fetch updated document
-        const updatedSnap = await getDoc(docRef);
+        const updatedSnap = await docRef.get();
         const updatedNode = { id: updatedSnap.id, ...updatedSnap.data() } as KnowledgeNode;
 
         return NextResponse.json({ success: true, node: updatedNode });
@@ -50,15 +50,16 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
     }
 
     try {
+        const db = adminDb();
         const id = params.id;
-        const docRef = doc(db, 'knowledge_base', id);
-        const docSnap = await getDoc(docRef);
+        const docRef = db.collection('knowledge_base').doc(id);
+        const docSnap = await docRef.get();
         
-        if (!docSnap.exists()) {
+        if (!docSnap.exists) {
             return NextResponse.json({ success: false, error: 'Node not found' }, { status: 404 });
         }
 
-        await deleteDoc(docRef);
+        await docRef.delete();
         
         return NextResponse.json({ success: true });
 

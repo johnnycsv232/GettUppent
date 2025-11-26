@@ -7,6 +7,7 @@ import { KnowledgeForm } from './components/KnowledgeForm';
 import { BulkActions } from './components/BulkActions';
 import { AnalyticsDashboard } from './components/AnalyticsDashboard';
 import { Plus, RefreshCw, Download, Upload, BarChart3 } from 'lucide-react';
+import { auth } from '@/lib/firebase';
 
 export default function AdminPage() {
     const [data, setData] = useState<KnowledgeNode[]>([]);
@@ -19,11 +20,32 @@ export default function AdminPage() {
     const fetchData = async () => {
         setIsLoading(true);
         try {
-            const res = await fetch('/api/admin/knowledge');
+            const user = auth.currentUser;
+            if (!user) {
+                console.error('No authenticated user');
+                setData([]);
+                setIsLoading(false);
+                return;
+            }
+            const token = await user.getIdToken();
+            const res = await fetch('/api/admin/knowledge', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
             const json = await res.json();
-            setData(json);
+            if (Array.isArray(json)) {
+                setData(json);
+            } else {
+                console.error('Data is not an array:', json);
+                setData([]);
+            }
         } catch (error) {
             console.error('Failed to fetch data', error);
+            setData([]);
         } finally {
             setIsLoading(false);
         }
@@ -47,7 +69,13 @@ export default function AdminPage() {
         if (!confirm('Are you sure you want to delete this node?')) return;
 
         try {
-            const res = await fetch(`/api/admin/knowledge/${id}`, { method: 'DELETE' });
+            const user = auth.currentUser;
+            if (!user) return;
+            const token = await user.getIdToken();
+            const res = await fetch(`/api/admin/knowledge/${id}`, { 
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
             if (res.ok) {
                 fetchData();
             } else {
@@ -60,19 +88,29 @@ export default function AdminPage() {
 
     const handleSave = async (formData: Partial<KnowledgeNode>) => {
         try {
+            const user = auth.currentUser;
+            if (!user) return;
+            const token = await user.getIdToken();
+            
             let res;
             if (currentNode) {
                 // Update
                 res = await fetch(`/api/admin/knowledge/${currentNode.id}`, {
                     method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
                     body: JSON.stringify(formData),
                 });
             } else {
                 // Create
                 res = await fetch('/api/admin/knowledge', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
                     body: JSON.stringify(formData),
                 });
             }
@@ -93,9 +131,16 @@ export default function AdminPage() {
         if (!confirm(`Are you sure you want to delete ${selectedIds.length} nodes?`)) return;
 
         try {
+            const user = auth.currentUser;
+            if (!user) return;
+            const token = await user.getIdToken();
+            
             await Promise.all(
                 selectedIds.map(id =>
-                    fetch(`/api/admin/knowledge/${id}`, { method: 'DELETE' })
+                    fetch(`/api/admin/knowledge/${id}`, { 
+                        method: 'DELETE',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    })
                 )
             );
             setSelectedIds([]);
@@ -108,13 +153,20 @@ export default function AdminPage() {
 
     const handleBulkArchive = async () => {
         try {
+            const user = auth.currentUser;
+            if (!user) return;
+            const token = await user.getIdToken();
+            
             await Promise.all(
                 selectedIds.map(id => {
                     const node = data.find(n => n.id === id);
                     if (!node) return Promise.resolve();
                     return fetch(`/api/admin/knowledge/${id}`, {
                         method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
                         body: JSON.stringify({ ...node, status: 'archived' }),
                     });
                 })
@@ -129,13 +181,20 @@ export default function AdminPage() {
 
     const handleBulkActivate = async () => {
         try {
+            const user = auth.currentUser;
+            if (!user) return;
+            const token = await user.getIdToken();
+            
             await Promise.all(
                 selectedIds.map(id => {
                     const node = data.find(n => n.id === id);
                     if (!node) return Promise.resolve();
                     return fetch(`/api/admin/knowledge/${id}`, {
                         method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
                         body: JSON.stringify({ ...node, status: 'active' }),
                     });
                 })
@@ -178,6 +237,13 @@ export default function AdminPage() {
         const reader = new FileReader();
         reader.onload = async (e) => {
             try {
+                const user = auth.currentUser;
+                if (!user) {
+                    alert('Not authenticated');
+                    return;
+                }
+                const token = await user.getIdToken();
+                
                 const importedData = JSON.parse(e.target?.result as string);
                 if (!Array.isArray(importedData)) {
                     alert('Invalid file format. Expected an array of knowledge nodes.');
@@ -188,7 +254,10 @@ export default function AdminPage() {
                 for (const node of importedData) {
                     await fetch('/api/admin/knowledge', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
                         body: JSON.stringify(node),
                     });
                 }
@@ -207,110 +276,79 @@ export default function AdminPage() {
 
     return (
         <main className="min-h-screen bg-[#080808] text-white p-8">
-            <div className="max-w-7xl mx-auto">
-
-                {/* Header */}
-                <header className="flex items-center justify-between mb-8">
-                    <div>
-                        <h1 className="font-heading text-5xl font-bold text-white mb-2 bg-gradient-to-r from-brand-gold via-white to-brand-pink bg-clip-text text-transparent">
-                            GettUpp CMS
-                        </h1>
-                        <p className="text-gray-500">Manage your business intelligence with power and precision.</p>
-                    </div>
-                    <div className="flex gap-3">
-                        <button
-                            onClick={() => setShowAnalytics(!showAnalytics)}
-                            className={`p-3 rounded-lg border transition-all ${showAnalytics
-                                    ? 'bg-brand-gold/20 border-brand-gold text-brand-gold'
-                                    : 'bg-[#1A1A1D] border-white/10 text-gray-400 hover:text-white hover:border-white/30'
-                                }`}
-                            title="Toggle Analytics"
-                        >
-                            <BarChart3 className="h-5 w-5" />
-                        </button>
-                        <button
-                            onClick={fetchData}
-                            className="p-3 rounded-lg bg-[#1A1A1D] border border-white/10 text-gray-400 hover:text-white hover:border-white/30 transition-all"
-                            title="Refresh"
-                        >
-                            <RefreshCw className={`h-5 w-5 ${isLoading ? 'animate-spin' : ''}`} />
-                        </button>
-                        <button
-                            onClick={handleExportAll}
-                            className="px-4 py-3 rounded-lg bg-[#1A1A1D] border border-white/10 text-gray-400 hover:text-white hover:border-white/30 transition-all flex items-center gap-2"
-                        >
-                            <Download className="h-5 w-5" />
-                            <span className="text-sm font-bold">Export</span>
-                        </button>
-                        <label className="px-4 py-3 rounded-lg bg-[#1A1A1D] border border-white/10 text-gray-400 hover:text-white hover:border-white/30 transition-all flex items-center gap-2 cursor-pointer">
-                            <Upload className="h-5 w-5" />
-                            <span className="text-sm font-bold">Import</span>
-                            <input
-                                type="file"
-                                accept=".json"
-                                onChange={handleImport}
-                                className="hidden"
-                            />
-                        </label>
-                        <button
-                            onClick={handleCreate}
-                            className="px-6 py-3 rounded-lg bg-gradient-to-r from-brand-gold to-yellow-500 text-black font-bold hover:shadow-[0_0_30px_rgba(217,174,67,0.4)] transition-all flex items-center gap-2"
-                        >
-                            <Plus className="h-5 w-5" />
-                            New Node
-                        </button>
-                    </div>
-                </header>
-
-                {/* Analytics Dashboard */}
-                {showAnalytics && data.length > 0 && (
-                    <div className="mb-8 animate-fade-in">
-                        <AnalyticsDashboard data={data} />
-                    </div>
-                )}
-
-                {/* Main Content */}
-                {isLoading && data.length === 0 ? (
-                    <div className="text-center py-20">
-                        <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-gold border-t-transparent mb-4"></div>
-                        <div className="text-gray-500">Loading knowledge base...</div>
-                    </div>
-                ) : data.length === 0 ? (
-                    <div className="text-center py-20 glass-card rounded-2xl">
-                        <div className="text-6xl mb-4">📚</div>
-                        <h3 className="text-2xl font-bold text-white mb-2">No Knowledge Nodes Yet</h3>
-                        <p className="text-gray-500 mb-6">Start building your knowledge base by creating your first node.</p>
-                        <button
-                            onClick={handleCreate}
-                            className="px-6 py-3 rounded-lg bg-gradient-to-r from-brand-gold to-yellow-500 text-black font-bold hover:shadow-[0_0_30px_rgba(217,174,67,0.4)] transition-all inline-flex items-center gap-2"
-                        >
-                            <Plus className="h-5 w-5" />
-                            Create First Node
-                        </button>
-                    </div>
-                ) : (
-                    <KnowledgeTable
-                        data={data}
-                        onEdit={handleEdit}
-                        onDelete={handleDelete}
-                        selectedIds={selectedIds}
-                        onSelectionChange={setSelectedIds}
-                    />
-                )}
-
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+                <div>
+                    <h1 className="text-3xl font-bold">Knowledge Base</h1>
+                    <p className="text-gray-400 mt-1">{data.length} nodes • The Brain of GettUpp OS</p>
+                </div>
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setShowAnalytics(!showAnalytics)}
+                        className={`p-2 rounded-lg transition-colors ${showAnalytics ? 'bg-[#D4AF37] text-black' : 'bg-[#1a1a1a] text-gray-400 hover:text-white'}`}
+                        title="Toggle Analytics"
+                    >
+                        <BarChart3 size={20} />
+                    </button>
+                    <button
+                        onClick={fetchData}
+                        className="p-2 bg-[#1a1a1a] rounded-lg hover:bg-[#2a2a2a] transition-colors"
+                        title="Refresh"
+                    >
+                        <RefreshCw size={20} className={isLoading ? 'animate-spin' : ''} />
+                    </button>
+                    <button
+                        onClick={handleExportAll}
+                        className="p-2 bg-[#1a1a1a] rounded-lg hover:bg-[#2a2a2a] transition-colors"
+                        title="Export All"
+                    >
+                        <Download size={20} />
+                    </button>
+                    <label className="p-2 bg-[#1a1a1a] rounded-lg hover:bg-[#2a2a2a] transition-colors cursor-pointer" title="Import">
+                        <Upload size={20} />
+                        <input type="file" accept=".json" onChange={handleImport} className="hidden" />
+                    </label>
+                    <button
+                        onClick={handleCreate}
+                        className="flex items-center gap-2 px-4 py-2 bg-[#D4AF37] text-black font-semibold rounded-lg hover:bg-[#b8962f] transition-colors"
+                    >
+                        <Plus size={20} />
+                        Add Node
+                    </button>
+                </div>
             </div>
 
-            {/* Bulk Actions Bar */}
-            <BulkActions
-                selectedCount={selectedIds.length}
-                onDelete={handleBulkDelete}
-                onArchive={handleBulkArchive}
-                onActivate={handleBulkActivate}
-                onExport={handleExportSelected}
-                onClear={() => setSelectedIds([])}
-            />
+            {/* Analytics Dashboard */}
+            {showAnalytics && <AnalyticsDashboard data={data} />}
 
-            {/* Modal */}
+            {/* Bulk Actions */}
+            {selectedIds.length > 0 && (
+                <BulkActions
+                    selectedCount={selectedIds.length}
+                    onDelete={handleBulkDelete}
+                    onArchive={handleBulkArchive}
+                    onActivate={handleBulkActivate}
+                    onExport={handleExportSelected}
+                    onClear={() => setSelectedIds([])}
+                />
+            )}
+
+            {/* Knowledge Table */}
+            {isLoading ? (
+                <div className="flex items-center justify-center py-20">
+                    <RefreshCw size={32} className="animate-spin text-[#D4AF37]" />
+                </div>
+            ) : (
+                <KnowledgeTable
+                    data={data}
+                    selectedIds={selectedIds}
+                    onSelectionChange={setSelectedIds}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
+                />
+            )}
+
+            {/* Edit/Create Modal */}
             {isEditing && (
                 <KnowledgeForm
                     initialData={currentNode}
@@ -321,4 +359,3 @@ export default function AdminPage() {
         </main>
     );
 }
-

@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateAuth } from '@/lib/auth-api';
-import { db } from '@/lib/firebase';
-import { collection, getDocs, addDoc, Timestamp } from 'firebase/firestore';
+import { adminDb } from '@/lib/firebase-admin';
 import { KnowledgeNode } from '@/types/knowledge';
 
 // 🔐 GET - Fetch all knowledge nodes (requires auth)
@@ -13,7 +12,8 @@ export async function GET(req: NextRequest) {
     }
 
     try {
-        const snapshot = await getDocs(collection(db, 'knowledge_base'));
+        const db = adminDb();
+        const snapshot = await db.collection('knowledge_base').get();
         const data = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
@@ -35,6 +35,7 @@ export async function POST(req: NextRequest) {
     }
 
     try {
+        const db = adminDb();
         const body = await req.json();
 
         const newNode: Omit<KnowledgeNode, 'id'> = {
@@ -47,7 +48,7 @@ export async function POST(req: NextRequest) {
             __source_file: 'admin_panel'
         };
 
-        const docRef = await addDoc(collection(db, 'knowledge_base'), newNode);
+        const docRef = await db.collection('knowledge_base').add(newNode);
         
         return NextResponse.json({ 
             success: true, 
