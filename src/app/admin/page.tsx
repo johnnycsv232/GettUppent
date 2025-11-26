@@ -7,9 +7,10 @@ import { KnowledgeForm } from './components/KnowledgeForm';
 import { BulkActions } from './components/BulkActions';
 import { AnalyticsDashboard } from './components/AnalyticsDashboard';
 import { Plus, RefreshCw, Download, Upload, BarChart3 } from 'lucide-react';
-import { auth } from '@/lib/firebase';
+import { useAuth } from '@/context/AuthContext';
 
 export default function AdminPage() {
+    const { user, loading: authLoading } = useAuth();
     const [data, setData] = useState<KnowledgeNode[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
@@ -18,21 +19,24 @@ export default function AdminPage() {
     const [showAnalytics, setShowAnalytics] = useState(true);
 
     const fetchData = async () => {
+        console.log('[fetchData] Starting, user:', user, 'authLoading:', authLoading);
         setIsLoading(true);
         try {
-            const user = auth.currentUser;
             if (!user) {
-                console.error('No authenticated user');
+                console.error('[fetchData] No authenticated user');
                 setData([]);
                 setIsLoading(false);
                 return;
             }
+            console.log('[fetchData] Getting ID token...');
             const token = await user.getIdToken();
+            console.log('[fetchData] Got token, length:', token?.length);
             const res = await fetch('/api/admin/knowledge', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
+            console.log('[fetchData] Response status:', res.status);
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
@@ -52,8 +56,10 @@ export default function AdminPage() {
     };
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        if (!authLoading && user) {
+            fetchData();
+        }
+    }, [authLoading, user]);
 
     const handleCreate = () => {
         setCurrentNode(null);
@@ -69,10 +75,10 @@ export default function AdminPage() {
         if (!confirm('Are you sure you want to delete this node?')) return;
 
         try {
-            const user = auth.currentUser;
+
             if (!user) return;
             const token = await user.getIdToken();
-            const res = await fetch(`/api/admin/knowledge/${id}`, { 
+            const res = await fetch(`/api/admin/knowledge/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -88,16 +94,16 @@ export default function AdminPage() {
 
     const handleSave = async (formData: Partial<KnowledgeNode>) => {
         try {
-            const user = auth.currentUser;
+
             if (!user) return;
             const token = await user.getIdToken();
-            
+
             let res;
             if (currentNode) {
                 // Update
                 res = await fetch(`/api/admin/knowledge/${currentNode.id}`, {
                     method: 'PUT',
-                    headers: { 
+                    headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
@@ -107,7 +113,7 @@ export default function AdminPage() {
                 // Create
                 res = await fetch('/api/admin/knowledge', {
                     method: 'POST',
-                    headers: { 
+                    headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
@@ -131,13 +137,13 @@ export default function AdminPage() {
         if (!confirm(`Are you sure you want to delete ${selectedIds.length} nodes?`)) return;
 
         try {
-            const user = auth.currentUser;
+
             if (!user) return;
             const token = await user.getIdToken();
-            
+
             await Promise.all(
                 selectedIds.map(id =>
-                    fetch(`/api/admin/knowledge/${id}`, { 
+                    fetch(`/api/admin/knowledge/${id}`, {
                         method: 'DELETE',
                         headers: { 'Authorization': `Bearer ${token}` }
                     })
@@ -153,17 +159,17 @@ export default function AdminPage() {
 
     const handleBulkArchive = async () => {
         try {
-            const user = auth.currentUser;
+
             if (!user) return;
             const token = await user.getIdToken();
-            
+
             await Promise.all(
                 selectedIds.map(id => {
                     const node = data.find(n => n.id === id);
                     if (!node) return Promise.resolve();
                     return fetch(`/api/admin/knowledge/${id}`, {
                         method: 'PUT',
-                        headers: { 
+                        headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
                         },
@@ -181,17 +187,17 @@ export default function AdminPage() {
 
     const handleBulkActivate = async () => {
         try {
-            const user = auth.currentUser;
+
             if (!user) return;
             const token = await user.getIdToken();
-            
+
             await Promise.all(
                 selectedIds.map(id => {
                     const node = data.find(n => n.id === id);
                     if (!node) return Promise.resolve();
                     return fetch(`/api/admin/knowledge/${id}`, {
                         method: 'PUT',
-                        headers: { 
+                        headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
                         },
@@ -237,13 +243,13 @@ export default function AdminPage() {
         const reader = new FileReader();
         reader.onload = async (e) => {
             try {
-                const user = auth.currentUser;
+
                 if (!user) {
                     alert('Not authenticated');
                     return;
                 }
                 const token = await user.getIdToken();
-                
+
                 const importedData = JSON.parse(e.target?.result as string);
                 if (!Array.isArray(importedData)) {
                     alert('Invalid file format. Expected an array of knowledge nodes.');
@@ -254,7 +260,7 @@ export default function AdminPage() {
                 for (const node of importedData) {
                     await fetch('/api/admin/knowledge', {
                         method: 'POST',
-                        headers: { 
+                        headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
                         },
