@@ -3,18 +3,38 @@
 import { useState, FormEvent } from 'react';
 import { CheckCircle, ArrowRight, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 export default function PilotIntakePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  async function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      venue: formData.get('venue') as string,
+      instagram: formData.get('instagram') as string,
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      status: 'Pending',
+      qualificationScore: 0,
+      createdAt: Timestamp.now(),
+      updatedAt: Timestamp.now()
+    };
+
+    try {
+      await addDoc(collection(db, 'leads'), data);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting lead:", error);
+      alert("Failed to submit application. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (isSubmitted) {
@@ -37,7 +57,7 @@ export default function PilotIntakePage() {
   return (
     <main className="min-h-screen bg-brand-ink px-6 py-24">
       <div className="mx-auto max-w-lg">
-        
+
         <div className="mb-10 text-center">
           <span className="mb-4 inline-block rounded-full bg-brand-pink/20 px-3 py-1 text-xs font-bold tracking-wide text-brand-pink uppercase">
             Pilot Program • Q4 2025
@@ -51,14 +71,15 @@ export default function PilotIntakePage() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl">
-          
+
           {/* Venue Details */}
           <div className="space-y-4">
             <div>
               <label className="mb-2 block text-sm font-semibold text-gray-300">Venue Name</label>
-              <input 
-                required 
-                type="text" 
+              <input
+                name="venue"
+                required
+                type="text"
                 placeholder="e.g. The Night Owl"
                 className="w-full rounded-lg border border-white/10 bg-brand-ink/50 px-4 py-3 text-white placeholder-gray-600 focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold"
               />
@@ -68,9 +89,10 @@ export default function PilotIntakePage() {
               <label className="mb-2 block text-sm font-semibold text-gray-300">Instagram Handle</label>
               <div className="relative">
                 <span className="absolute left-4 top-3.5 text-gray-500">@</span>
-                <input 
-                  required 
-                  type="text" 
+                <input
+                  name="instagram"
+                  required
+                  type="text"
                   placeholder="nightowl_mpls"
                   className="w-full rounded-lg border border-white/10 bg-brand-ink/50 pl-8 pr-4 py-3 text-white placeholder-gray-600 focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold"
                 />
@@ -83,9 +105,10 @@ export default function PilotIntakePage() {
           <div className="space-y-4 pt-4 border-t border-white/10">
             <div>
               <label className="mb-2 block text-sm font-semibold text-gray-300">Your Name (Owner/Manager)</label>
-              <input 
-                required 
-                type="text" 
+              <input
+                name="name"
+                required
+                type="text"
                 placeholder="Johnny Cage"
                 className="w-full rounded-lg border border-white/10 bg-brand-ink/50 px-4 py-3 text-white placeholder-gray-600 focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold"
               />
@@ -93,17 +116,18 @@ export default function PilotIntakePage() {
 
             <div>
               <label className="mb-2 block text-sm font-semibold text-gray-300">Best Email</label>
-              <input 
-                required 
-                type="email" 
+              <input
+                name="email"
+                required
+                type="email"
                 placeholder="manager@venue.com"
                 className="w-full rounded-lg border border-white/10 bg-brand-ink/50 px-4 py-3 text-white placeholder-gray-600 focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold"
               />
             </div>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={isSubmitting}
             className="group mt-8 flex w-full items-center justify-center rounded-lg bg-brand-gold px-4 py-4 text-lg font-bold text-brand-ink transition-all hover:bg-brand-gold/90 disabled:opacity-70"
           >
@@ -119,7 +143,7 @@ export default function PilotIntakePage() {
 
           <p className="text-center text-xs text-gray-500">
             By submitting, you agree to our <span className="underline decoration-gray-600 underline-offset-2">Pilot Terms</span>.
-            <br/>Limited availability (3 spots/mo).
+            <br />Limited availability (3 spots/mo).
           </p>
         </form>
       </div>

@@ -1,68 +1,61 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { validateAuth } from '@/lib/auth-api';
+import { db } from '@/lib/firebase';
+import { collection, getDocs, addDoc, Timestamp } from 'firebase/firestore';
 import { KnowledgeNode } from '@/types/knowledge';
 
-// Path to the JSON file
-const DATA_FILE_PATH = path.join(process.cwd(), 'GETTUPP_MASTER_UNIFIED_Q4_2025_FULL_with_GettUpp_Girls.json');
+// 🔐 GET - Fetch all knowledge nodes (requires auth)
+export async function GET(req: NextRequest) {
+    // Validate authentication
+    const authResult = await validateAuth(req);
+    if (!authResult.success) {
+        return authResult.response;
+    }
 
-// Helper to read data
-function readData(): KnowledgeNode[] {
     try {
-        const fileContents = fs.readFileSync(DATA_FILE_PATH, 'utf8');
-        return JSON.parse(fileContents) as KnowledgeNode[];
+        const snapshot = await getDocs(collection(db, 'knowledge_base'));
+        const data = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        })) as KnowledgeNode[];
+        
+        return NextResponse.json(data);
     } catch (error) {
-        console.error('Error reading knowledge base:', error);
-        return [];
+        console.error('Error fetching knowledge base:', error);
+        return NextResponse.json({ error: 'Failed to fetch data' }, { status: 500 });
     }
 }
 
-// Helper to write data
-function writeData(data: KnowledgeNode[]) {
-    try {
-        fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(data, null, 2), 'utf8');
-        return true;
-    } catch (error) {
-        console.error('Error writing knowledge base:', error);
-        return false;
-    }
-}
-
-export async function GET() {
-    const data = readData();
-    return NextResponse.json(data);
-}
-
+// 🔐 POST - Create new knowledge node (requires auth)
 export async function POST(req: NextRequest) {
+    // Validate authentication
+    const authResult = await validateAuth(req);
+    if (!authResult.success) {
+        return authResult.response;
+    }
+
     try {
         const body = await req.json();
-        const data = readData();
 
-        // Generate a simple ID if not provided (or better, use UUID)
-        // For now, we'll just use a timestamp-based ID for simplicity
-        const newId = `node_${Date.now()}`;
-
-        const newNode: KnowledgeNode = {
+        const newNode: Omit<KnowledgeNode, 'id'> = {
             ...body,
-            id: newId,
             timestamp_added: new Date().toISOString(),
-            // Default fields if missing
-            legacy_id: null,
-            relevance_score: 1.0,
-            status: 'active',
-            version: 1,
-            __source_file: 'manual_entry'
+            legacy_id: body.legacy_id || null,
+            relevance_score: body.relevance_score || 1.0,
+            status: body.status || 'active',
+            version: body.version || 1,
+            __source_file: 'admin_panel'
         };
 
-        data.push(newNode);
-
-        if (writeData(data)) {
-            return NextResponse.json({ success: true, node: newNode });
-        } else {
-            return NextResponse.json({ success: false, error: 'Failed to save data' }, { status: 500 });
-        }
+        const docRef = await addDoc(collection(db, 'knowledge_base'), newNode);
+        
+        return NextResponse.json({ 
+            success: true, 
+            node: { id: docRef.id, ...newNode } 
+        });
 
     } catch (error) {
-        return NextResponse.json({ success: false, error: 'Invalid request' }, { status: 400 });
+        console.error('Error creating knowledge node:', error);
+        return NextResponse.json({ success: false, error: 'Failed to create node' }, { status: 500 });
     }
 }

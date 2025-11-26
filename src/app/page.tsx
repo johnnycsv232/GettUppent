@@ -1,12 +1,15 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Sparkles, Zap, Camera, Users, Play, Star, CheckCircle, Crown, Instagram, Video, TrendingUp, Lock, Search, Database, Globe, Shield, Briefcase, Activity } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Users, Play, Star, CheckCircle, Crown, Video, TrendingUp, Lock, Database, Terminal } from 'lucide-react';
+import { useCMS } from '@/hooks/useCMS';
+import LandingSkeleton from '@/components/LandingSkeleton';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { content, loading } = useCMS();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -26,47 +29,11 @@ export default function Home() {
     };
   }, []);
 
-  const retainers = [
-    {
-      title: "The Opener",
-      tier: "TIER 1",
-      price: "$445",
-      period: "/mo",
-      desc: "Consistent weekly presence.",
-      features: ["1 On-Site Shoot", "30 Edited Photos", "72h Delivery", "Standard Licensing"],
-      highlight: false,
-      color: "border-white/20"
-    },
-    {
-      title: "The Headliner",
-      tier: "TIER 2",
-      price: "$695",
-      period: "/mo",
-      desc: "Growth & video dominance.",
-      features: ["2 On-Site Shoots", "60 Edited Photos", "2 High-End Reels", "48h Delivery", "Route-Batched Priority"],
-      highlight: true,
-      color: "border-brand-gold"
-    },
-    {
-      title: "VIP Partner",
-      tier: "TIER 3",
-      price: "$995",
-      period: "/mo",
-      desc: "Maximum volume & speed.",
-      features: ["3 On-Site Shoots", "80 Edited Photos", "3 High-End Reels", "24-48h Delivery", "Monthly Strategy Call"],
-      highlight: false,
-      color: "border-brand-pink"
-    }
-  ];
+  if (loading || !content) {
+    return <LandingSkeleton />;
+  }
 
-  const portfolio = [
-    { type: 'video', src: '/placeholder-1.jpg', title: 'Neon Nights' },
-    { type: 'image', src: '/placeholder-2.jpg', title: 'VIP Lounge' },
-    { type: 'video', src: '/placeholder-3.jpg', title: 'Summer Series' },
-    { type: 'image', src: '/placeholder-4.jpg', title: 'Bottle Service' },
-    { type: 'image', src: '/placeholder-5.jpg', title: 'DJ Set' },
-    { type: 'video', src: '/placeholder-6.jpg', title: 'Grand Opening' },
-  ];
+  const { hero, pricing, portfolio } = content;
 
   return (
     <div className="min-h-screen bg-[#050505] text-white overflow-x-hidden perspective-1000 font-sans selection:bg-brand-gold selection:text-black">
@@ -111,17 +78,15 @@ export default function Home() {
 
           <h1 className="text-7xl md:text-[10rem] font-black mb-8 tracking-tighter leading-[0.8]">
             <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 drop-shadow-2xl">
-              OWN THE
+              {hero.headline.split(' ').slice(0, 2).join(' ')}
             </span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-gold drop-shadow-[0_0_50px_rgba(255,215,0,0.4)]">
-              NIGHT
+              {hero.headline.split(' ').slice(2).join(' ')}
             </span>
           </h1>
 
-          <p className="text-xl md:text-3xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-            We don't just post. We pack venues.
-            <br />
-            <span className="text-white font-bold">Energy. Consistency. Measurable Results.</span>
+          <p className="text-xl md:text-3xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light whitespace-pre-line">
+            {hero.subheadline}
           </p>
 
           {/* Social Proof Stats */}
@@ -144,12 +109,12 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
-              href="#pilot"
+              href={hero.ctaLink}
               className="group relative px-10 py-5 bg-brand-gold text-black font-black text-xl uppercase tracking-wider clip-path-slant hover:scale-105 transition-transform shadow-[0_0_40px_rgba(217,174,67,0.4)]"
             >
               <div className="absolute inset-0 bg-white/40 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative flex items-center gap-3">
-                Start The Pilot <Zap className="h-6 w-6 fill-current" />
+                {hero.ctaText} <Zap className="h-6 w-6 fill-current" />
               </span>
             </Link>
             <Link href="/admin" className="group flex items-center gap-3 px-10 py-5 border border-white/20 hover:bg-white/5 transition-colors uppercase tracking-wider font-bold text-xl backdrop-blur-sm">
@@ -244,32 +209,32 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {retainers.map((plan, i) => (
+            {pricing.map((plan, i) => (
               <div
                 key={i}
-                className={`group relative p-10 rounded-[2rem] border ${plan.color} bg-[#0A0A0A] transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl flex flex-col`}
+                className={`group relative p-10 rounded-[2rem] border ${plan.isPopular ? 'border-brand-gold' : 'border-white/20'} bg-[#0A0A0A] transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl flex flex-col`}
               >
-                {plan.highlight && (
+                {plan.isPopular && (
                   <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-8 py-2 bg-brand-gold text-black font-black uppercase tracking-widest text-sm rounded-full shadow-[0_0_30px_rgba(217,174,67,0.4)]">
                     Best Value
                   </div>
                 )}
 
-                <div className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">{plan.tier}</div>
-                <h3 className="text-3xl font-black mb-2 text-white uppercase">{plan.title}</h3>
-                <p className="text-gray-400 mb-8 h-12">{plan.desc}</p>
+                <div className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">TIER {i + 1}</div>
+                <h3 className="text-3xl font-black mb-2 text-white uppercase">{plan.name}</h3>
+                <p className="text-gray-400 mb-8 h-12">{plan.description}</p>
 
                 <div className="mb-10 pb-10 border-b border-white/10">
-                  <span className={`text-6xl font-black ${plan.highlight ? 'text-brand-gold' : 'text-white'}`}>
-                    {plan.price}
+                  <span className={`text-6xl font-black ${plan.isPopular ? 'text-brand-gold' : 'text-white'}`}>
+                    ${plan.price}
                   </span>
-                  <span className="text-gray-500 font-bold">{plan.period}</span>
+                  <span className="text-gray-500 font-bold">/mo</span>
                 </div>
 
                 <ul className="space-y-6 mb-12 flex-grow">
                   {plan.features.map((feat, j) => (
                     <li key={j} className="flex items-start gap-3 text-gray-300 font-medium">
-                      <CheckCircle className={`h-5 w-5 mt-1 ${plan.highlight ? 'text-brand-gold' : 'text-gray-600'}`} />
+                      <CheckCircle className={`h-5 w-5 mt-1 ${plan.isPopular ? 'text-brand-gold' : 'text-gray-600'}`} />
                       {feat}
                     </li>
                   ))}
@@ -277,12 +242,12 @@ export default function Home() {
 
                 <Link
                   href="/pilot-intake"
-                  className={`block w-full text-center py-5 font-black uppercase tracking-widest transition-all duration-300 rounded-xl ${plan.highlight
-                      ? 'bg-brand-gold text-black hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]'
-                      : 'bg-white/5 text-white hover:bg-white/20'
+                  className={`block w-full text-center py-5 font-black uppercase tracking-widest transition-all duration-300 rounded-xl ${plan.isPopular
+                    ? 'bg-brand-gold text-black hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]'
+                    : 'bg-white/5 text-white hover:bg-white/20'
                     }`}
                 >
-                  Select Tier
+                  {plan.ctaText}
                 </Link>
               </div>
             ))}
@@ -400,7 +365,7 @@ export default function Home() {
 
                 <div className="absolute bottom-0 left-0 p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   <div className="text-white font-bold text-xl uppercase tracking-wider mb-2">{item.title}</div>
-                  <div className="text-brand-gold text-sm font-mono">VIEW PROJECT -></div>
+                  <div className="text-brand-gold text-sm font-mono">VIEW PROJECT -&gt;</div>
                 </div>
               </div>
             ))}
@@ -442,7 +407,7 @@ export default function Home() {
             <Link href="/admin" className="hover:text-brand-gold transition-colors">Staff Login</Link>
           </div>
           <div className="text-gray-600 text-xs uppercase tracking-widest">
-            © 2025 GettUpp ENT. All Rights Reserved.
+            &copy; 2025 GettUpp ENT. All Rights Reserved.
           </div>
         </div>
       </footer>

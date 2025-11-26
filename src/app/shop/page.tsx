@@ -1,15 +1,16 @@
 import { getAllKnowledge } from '@/lib/knowledge';
 import Link from 'next/link';
 import { ShoppingBag, Star, Zap, ArrowRight } from 'lucide-react';
+import { KnowledgeNode } from '@/types/knowledge';
 
-export default function ShopPage() {
-  const allData = getAllKnowledge();
+export default async function ShopPage() {
+  const allData: KnowledgeNode[] = await getAllKnowledge();
   
   // Extract Girls Data
-  const overview = allData.find(n => n.sub_topic === 'gettupp_girls_overview');
-  const slogans = allData.find(n => n.sub_topic === 'gettupp_girls_hero_slogans')?.content.replace('Current core slogan set for GettUpp Girls apparel: ', '').split(', ') || [];
-  const products = allData.find(n => n.sub_topic === 'gettupp_girls_product_types')?.content.replace('Initial GettUpp Girls product range: ', '').split(', ').map(p => p.replace(/^\(\d+\)\s*/, '')) || [];
-  const pricing = allData.find(n => n.sub_topic === 'gettupp_girls_price_strategy');
+  const overview = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_overview');
+  const slogans = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_hero_slogans')?.content.replace('Current core slogan set for GettUpp Girls apparel: ', '').split(', ') || [];
+  const products = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_product_types')?.content.replace('Initial GettUpp Girls product range: ', '').split(', ').map((p: string) => p.replace(/^\(\d+\)\s*/, '')) || [];
+  const pricing = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_price_strategy');
 
   return (
     <main className="min-h-screen bg-[#0B0B0D] text-white">
@@ -32,7 +33,7 @@ export default function ShopPage() {
 
         {/* Slogans ticker (simulated) */}
         <div className="mt-12 flex flex-wrap justify-center gap-3 relative z-10">
-          {slogans.slice(0, 3).map((slogan, i) => (
+          {slogans.slice(0, 3).map((slogan: string, i: number) => (
             <span key={i} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-bold uppercase tracking-wide text-brand-gold">
               "{slogan.replace(/'/g, '')}"
             </span>
@@ -48,7 +49,7 @@ export default function ShopPage() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, i) => (
+          {products.map((product: string, i: number) => (
             <div key={i} className="group relative bg-[#121214] rounded-xl border border-white/5 overflow-hidden hover:border-brand-pink/50 transition-colors">
               {/* Image Placeholder */}
               <div className="aspect-[4/5] bg-gradient-to-b from-gray-800 to-black flex items-center justify-center relative">

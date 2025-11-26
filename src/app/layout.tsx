@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import { Inter, Poppins, Oswald } from 'next/font/google'
 import React from 'react'
 import './globals.css'
+import { AuthProvider } from '@/context/AuthContext'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const poppins = Poppins({ 
+const poppins = Poppins({
   weight: ['400', '600', '700'],
   subsets: ['latin'],
   variable: '--font-poppins'
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'GettUpp ENT',
     images: [
       {
-        url: '/brand/og-image.jpg', // Assuming this exists or will exist
+        url: '/brand/og-image.jpg',
         width: 1200,
         height: 630,
       },
@@ -42,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} ${oswald.variable} antialiased`}>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   )
