@@ -13,7 +13,17 @@ export type ClientStatus =
   | 'pending'      // Converted from lead, awaiting payment
   | 'active'       // Paid and in service
   | 'completed'    // All deliverables delivered
-  | 'cancelled';   // Service cancelled
+  | 'cancelled'    // Service cancelled
+  | 'past_due';    // Subscription payment failed
+
+export type SubscriptionStatus = 
+  | 'active'
+  | 'past_due'
+  | 'canceled'
+  | 'incomplete'
+  | 'incomplete_expired'
+  | 'trialing'
+  | 'unpaid';
 
 export type ClientTier = 
   | 'pilot'        // Introductory package
@@ -37,6 +47,13 @@ export interface Client {
   amountPaid: number;
   stripeCustomerId?: string;
   stripePaymentIntentId?: string;
+  
+  // Subscription (for recurring tiers: t1, t2, vip)
+  stripeSubscriptionId?: string;
+  subscriptionStatus?: SubscriptionStatus;
+  currentPeriodStart?: Date;
+  currentPeriodEnd?: Date;
+  cancelAtPeriodEnd?: boolean;
   
   // Source Tracking
   leadId?: string;  // Original lead ID if converted
@@ -161,6 +178,8 @@ export interface Invoice {
   // Stripe Integration
   stripeSessionId?: string;
   stripePaymentIntentId?: string;
+  stripeInvoiceId?: string;
+  stripeSubscriptionId?: string;
   
   // Details
   description: string;
@@ -169,6 +188,85 @@ export interface Invoice {
   // Timestamps
   createdAt: Date;
   paidAt?: Date;
+}
+
+// ============================================
+// PAYMENT HISTORY (All Transactions)
+// ============================================
+
+export type PaymentType = 
+  | 'one_time'       // Single purchase
+  | 'subscription'   // Recurring payment
+  | 'refund';        // Refund issued
+
+export type PaymentStatus =
+  | 'succeeded'
+  | 'pending'
+  | 'failed'
+  | 'refunded'
+  | 'partially_refunded';
+
+export interface Payment {
+  id: string;
+  clientId: string;
+  
+  // Transaction Details
+  amount: number;
+  currency: string;
+  type: PaymentType;
+  status: PaymentStatus;
+  
+  // Stripe Integration
+  stripePaymentIntentId?: string;
+  stripeChargeId?: string;
+  stripeInvoiceId?: string;
+  stripeSubscriptionId?: string;
+  
+  // Refund Details (if applicable)
+  refundedAmount?: number;
+  refundReason?: string;
+  
+  // Metadata
+  description: string;
+  tier?: ClientTier;
+  metadata?: Record<string, string>;
+  
+  // Timestamps
+  createdAt: Date;
+  updatedAt?: Date;
+}
+
+// ============================================
+// SUBSCRIPTION (Stripe Subscription Tracking)
+// ============================================
+
+export interface Subscription {
+  id: string;
+  clientId: string;
+  
+  // Stripe Integration
+  stripeSubscriptionId: string;
+  stripeCustomerId: string;
+  stripePriceId: string;
+  
+  // Status
+  status: SubscriptionStatus;
+  tier: ClientTier;
+  
+  // Billing Period
+  currentPeriodStart: Date;
+  currentPeriodEnd: Date;
+  cancelAtPeriodEnd: boolean;
+  canceledAt?: Date;
+  
+  // Financial
+  amount: number;
+  currency: string;
+  interval: 'month' | 'year';
+  
+  // Timestamps
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 // ============================================

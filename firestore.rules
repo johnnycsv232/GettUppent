@@ -6,65 +6,100 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
+    // Helper function to check if user is admin (GettUpp email)
+    function isAdmin() {
+      return request.auth != null && 
+             request.auth.token.email.matches('.*@gettupp[.]com');
+    }
+
+    // Helper function to check if user is authenticated
+    function isAuth() {
+      return request.auth != null;
+    }
+
     // ========================================
     // LEADS COLLECTION
     // ========================================
     // Public: Anyone can create a lead (pilot-intake form)
-    // Admin: Only authenticated users can read/update/delete
+    // Admin: Only admins can read/update/delete
     match /leads/{leadId} {
       allow create: if true;
-      allow read, update, delete: if request.auth != null;
+      allow read, update, delete: if isAdmin();
     }
     
     // ========================================
     // SITE CONTENT COLLECTION  
     // ========================================
     // Public: Anyone can read (landing page content)
-    // Admin: Only authenticated users can write
+    // Admin: Only admins can write
     match /site_content/{docId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin();
     }
     
     // ========================================
     // KNOWLEDGE BASE COLLECTION
     // ========================================
-    // Private: Only authenticated users can read/write
+    // Private: Only admins can read/write
     // This is internal business intelligence data
     match /knowledge_base/{nodeId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isAdmin();
     }
     
     // ========================================
     // CLIENTS COLLECTION (Paying Customers)
     // ========================================
-    // Private: Only authenticated admin users
+    // Private: Only admins
     match /clients/{clientId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isAdmin();
     }
     
     // ========================================
     // SHOOTS COLLECTION (Operations)
     // ========================================
-    // Private: Only authenticated users
+    // Private: Only admins (for now, later maybe photographers)
     match /shoots/{shootId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isAdmin();
     }
     
     // ========================================
     // INVOICES COLLECTION (Payment Records)
     // ========================================
-    // Private: Only authenticated users
+    // Private: Only admins
     match /invoices/{invoiceId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isAdmin();
     }
     
     // ========================================
-    // USER PREFERENCES (future)
+    // PAYMENTS COLLECTION (Transaction History)
+    // ========================================
+    // Private: Only admins
+    match /payments/{paymentId} {
+      allow read, write: if isAdmin();
+    }
+    
+    // ========================================
+    // SUBSCRIPTIONS COLLECTION (Stripe Subscriptions)
+    // ========================================
+    // Private: Only admins
+    match /subscriptions/{subscriptionId} {
+      allow read, write: if isAdmin();
+    }
+    
+    // ========================================
+    // DISPUTES COLLECTION (Stripe Disputes)
+    // ========================================
+    // Private: Only admins
+    match /disputes/{disputeId} {
+      allow read, write: if isAdmin();
+    }
+    
+    // ========================================
+    // USER PREFERENCES
     // ========================================
     match /user_preferences/{userId} {
       // Users can only read/write their own preferences
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write: if isAuth() && request.auth.uid == userId;
     }
     
     // ========================================
