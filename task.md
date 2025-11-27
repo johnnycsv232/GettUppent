@@ -26,7 +26,7 @@
 - [x] Analyze content structure (`GETTUPP_MASTER_UNIFIED...json`) <!-- id: 11 -->
 - [x] Design Firestore schema for `site_content` <!-- id: 12 -->
 - [x] Create migration script `src/app/admin/seed/page.tsx` <!-- id: 13 -->
-- [ ] Execute migration and verify data <!-- id: 14 -->
+- [x] Execute migration and verify data <!-- id: 14 -->
 - [x] Create type definitions `src/types/content.ts` <!-- id: 15 -->
 
 ## Prompt 4: Connect Frontend to CMS (Polish)
@@ -36,7 +36,7 @@
 - [x] Verify performance and design preservation <!-- id: 19 -->
 
 ## Prompt 5: Connect Admin to CMS Editor (Polish)
-- [ ] Create `src/app/admin/content/page.tsx` <!-- id: 20 -->
-- [ ] Build edit forms with React Hook Form <!-- id: 21 -->
-- [ ] Implement save functionality with Firestore updates <!-- id: 22 -->
-- [ ] Verify end-to-end editing flow <!-- id: 23 -->
+- [x] Create `src/app/admin/content/page.tsx` <!-- id: 20 -->
+- [x] Build edit forms with React Hook Form <!-- id: 21 -->
+- [x] Implement save functionality with Firestore updates <!-- id: 22 -->
+- [x] Verify end-to-end editing flow <!-- id: 23 -->

@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+# Required status checks for branch protection:
+# 1. Build & Test (Node 18.x) - must pass
+# 2. Build & Test (Node 20.x) - must pass
+# 3. Code Quality - must pass
+# 4. Security Audit - must pass
+
 jobs:
   # Job 1: Build and Test
   build:
@@ -88,10 +94,47 @@ jobs:
           node-version: '20.x'
       
       - name: 🔒 Run security audit
-        run: npm audit --audit-level=moderate
-        continue-on-error: true
+        run: npm audit --audit-level=critical
       
-      - name: 🛡️ Check for vulnerabilities
-        run: |
-          echo "Security audit completed"
-          # Add additional security scanning tools here
+      - name: 🛡️ Check for known vulnerabilities
+        run: npm audit --audit-level=high --json > audit-report.json || true
+        
+      - name: 📊 Upload security report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-audit-report
+          path: audit-report.json
+          retention-days: 30
+
+  # Job 4: Lighthouse Performance Audit
+  lighthouse:
+    name: Performance Audit
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          
+      - name: 📦 Install dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build
+        run: npm run build
+        env:
+          NODE_ENV: production
+        
+      - name: 🔦 Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

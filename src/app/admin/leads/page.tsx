@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react';
 import { db } from '@/lib/firebase';
 import { collection, query, orderBy, onSnapshot, doc, updateDoc, Timestamp } from 'firebase/firestore';
-import { RefreshCw, Search, Filter, MoreHorizontal, Phone, Mail, Calendar, DollarSign, Users, MessageSquare } from 'lucide-react';
+import { RefreshCw, Search, Filter, MoreHorizontal, Phone, Mail, Calendar, DollarSign, Users, MessageSquare, UserPlus } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
+import { ClientTier } from '@/types';
 
 interface Lead {
     id: string;
@@ -30,9 +32,13 @@ const STATUS_COLORS = {
 };
 
 export default function LeadsPage() {
+    const { user } = useAuth();
     const [leads, setLeads] = useState<Lead[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [convertingId, setConvertingId] = useState<string | null>(null);
+    const [showConvertModal, setShowConvertModal] = useState(false);
+    const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
     useEffect(() => {
         const q = query(collection(db, 'leads'), orderBy('createdAt', 'desc'));
@@ -194,9 +200,23 @@ export default function LeadsPage() {
                                             <div className="text-xs opacity-50">{lead.createdAt?.toDate().toLocaleTimeString()}</div>
                                         </td>
                                         <td className="p-6">
-                                            <button className="p-2 rounded-lg hover:bg-white/10 text-gray-500 hover:text-white transition-colors">
-                                                <MoreHorizontal className="h-5 w-5" />
-                                            </button>
+                                            <div className="flex items-center gap-2">
+                                                {(lead.status === 'Qualified' || lead.status === 'Booked') && (
+                                                    <button
+                                                        onClick={() => {
+                                                            setSelectedLead(lead);
+                                                            setShowConvertModal(true);
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-brand-gold/20 text-brand-gold rounded-lg text-xs font-bold hover:bg-brand-gold/30 transition-colors"
+                                                    >
+                                                        <UserPlus className="h-3 w-3" />
+                                                        Convert
+                                                    </button>
+                                                )}
+                                                <button className="p-2 rounded-lg hover:bg-white/10 text-gray-500 hover:text-white transition-colors">
+                                                    <MoreHorizontal className="h-5 w-5" />
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))
@@ -204,6 +224,112 @@ export default function LeadsPage() {
                         </tbody>
                     </table>
                 </div>
+            </div>
+            {/* Convert Lead Modal */}
+            {showConvertModal && selectedLead && (
+                <ConvertLeadModal
+                    lead={selectedLead}
+                    onClose={() => {
+                        setShowConvertModal(false);
+                        setSelectedLead(null);
+                    }}
+                    onSuccess={() => {
+                        setShowConvertModal(false);
+                        setSelectedLead(null);
+                        // Refresh leads to show updated status
+                        window.location.reload();
+                    }}
+                />
+            )}
+        </div>
+    );
+}
+
+// Convert Lead Modal Component
+function ConvertLeadModal({ lead, onClose, onSuccess }: { lead: Lead; onClose: () => void; onSuccess: () => void }) {
+    const { user } = useAuth();
+    const [tier, setTier] = useState<ClientTier>('pilot');
+    const [submitting, setSubmitting] = useState(false);
+
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        if (!user) return;
+
+        try {
+            setSubmitting(true);
+            const token = await user.getIdToken();
+            const res = await fetch('/api/admin/clients', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    name: lead.name,
+                    email: lead.email,
+                    phone: lead.phone,
+                    instagram: lead.instagram,
+                    tier,
+                    leadId: lead.id,
+                    source: 'lead_conversion',
+                }),
+            });
+
+            if (!res.ok) throw new Error('Failed to convert lead');
+            onSuccess();
+        } catch (err) {
+            alert(err instanceof Error ? err.message : 'Failed to convert lead');
+        } finally {
+            setSubmitting(false);
+        }
+    }
+
+    return (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="bg-[#111] border border-white/10 rounded-2xl p-8 w-full max-w-md shadow-2xl">
+                <h2 className="text-2xl font-black text-white mb-2">Convert to Client</h2>
+                <p className="text-gray-400 mb-6">Create a paying client from this lead</p>
+
+                <div className="bg-white/5 rounded-xl p-4 mb-6">
+                    <p className="font-bold text-white">{lead.name}</p>
+                    <p className="text-sm text-gray-400">{lead.email}</p>
+                    <p className="text-sm text-brand-gold">@{lead.instagram?.replace('@', '')}</p>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-400 mb-2">
+                            Service Tier
+                        </label>
+                        <select
+                            value={tier}
+                            onChange={(e) => setTier(e.target.value as ClientTier)}
+                            className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-brand-gold focus:outline-none"
+                        >
+                            <option value="pilot">Pilot - $299</option>
+                            <option value="t1">Tier 1 - $599</option>
+                            <option value="t2">Tier 2 - $999</option>
+                            <option value="vip">VIP - $1,999</option>
+                        </select>
+                    </div>
+
+                    <div className="flex gap-3 pt-4">
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            className="flex-1 px-4 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-colors font-medium"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="submit"
+                            disabled={submitting}
+                            className="flex-1 px-4 py-3 bg-brand-gold text-black font-bold rounded-lg hover:bg-brand-gold/90 disabled:opacity-50 transition-colors"
+                        >
+                            {submitting ? 'Converting...' : 'Convert to Client'}
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );

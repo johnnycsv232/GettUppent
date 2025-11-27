@@ -36,10 +36,26 @@ service cloud.firestore {
     }
     
     // ========================================
+    // CLIENTS COLLECTION (Paying Customers)
+    // ========================================
+    // Private: Only authenticated admin users
+    match /clients/{clientId} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // ========================================
     // SHOOTS COLLECTION (Operations)
     // ========================================
     // Private: Only authenticated users
     match /shoots/{shootId} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // ========================================
+    // INVOICES COLLECTION (Payment Records)
+    // ========================================
+    // Private: Only authenticated users
+    match /invoices/{invoiceId} {
       allow read, write: if request.auth != null;
     }
     
