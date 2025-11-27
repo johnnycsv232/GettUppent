@@ -1,0 +1,71 @@
+[debug] [2025-11-27T07:13:08.310Z] ----------------------------------------------------------------------
+[debug] [2025-11-27T07:13:08.321Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\finan\AppData\Local\npm-cache\_npx\ba4f1959e38407b5\node_modules\firebase-tools\lib\bin\firebase.js init dataconnect --project gettuppent-production
+[debug] [2025-11-27T07:13:08.323Z] CLI Version:   14.26.0
+[debug] [2025-11-27T07:13:08.323Z] Platform:      win32
+[debug] [2025-11-27T07:13:08.323Z] Node Version:  v20.11.0
+[debug] [2025-11-27T07:13:08.323Z] Time:          Thu Nov 27 2025 01:13:08 GMT-0600 (Central Standard Time)
+[debug] [2025-11-27T07:13:08.324Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-27T07:13:09.272Z] Object "/functions" in "firebase.json" is missing required property: {"missingProperty":"source"}
+[debug] [2025-11-27T07:13:09.273Z] Object "/functions" in "firebase.json" is missing required property: {"missingProperty":"remoteSource"}
+[debug] [2025-11-27T07:13:09.274Z] Field "/functions" in "firebase.json" is possibly invalid: must be array
+[debug] [2025-11-27T07:13:09.274Z] Field "/functions" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-11-27T07:13:09.294Z] Object "/functions" in "firebase.json" is missing required property: {"missingProperty":"source"}
+[debug] [2025-11-27T07:13:09.295Z] Object "/functions" in "firebase.json" is missing required property: {"missingProperty":"remoteSource"}
+[debug] [2025-11-27T07:13:09.295Z] Field "/functions" in "firebase.json" is possibly invalid: must be array
+[debug] [2025-11-27T07:13:09.296Z] Field "/functions" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\finan\CascadeProjects\CUsersfinanCascadeProjectsrelationship-rag-assistant
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2025-11-27T07:13:31.953Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-27T07:13:31.954Z] > authorizing via signed-in user (financegettuppent@gmail.com)
+[debug] [2025-11-27T07:13:31.956Z] Checked if tokens are valid: false, expires at: 1764188809838
+[debug] [2025-11-27T07:13:31.957Z] Checked if tokens are valid: false, expires at: 1764188809838
+[debug] [2025-11-27T07:13:31.957Z] > refreshing access token with scopes: []
+[debug] [2025-11-27T07:13:31.961Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-11-27T07:13:31.961Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-11-27T07:13:32.304Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-11-27T07:13:32.305Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-11-27T07:13:32.324Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gettuppent-production [none]
+[debug] [2025-11-27T07:13:32.760Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gettuppent-production 200
+[debug] [2025-11-27T07:13:32.760Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gettuppent-production {"projectId":"gettuppent-production","projectNumber":"633333837038","displayName":"gettuppent-production","name":"projects/gettuppent-production","resources":{"hostingSite":"gettuppent-production"},"state":"ACTIVE","etag":"1_681c6556-c293-445d-9c26-499318654c47"}
+[info] i  Using project gettuppent-production (gettuppent-production) . 
+[info] 
+=== Dataconnect Setup
+[info] i  dataconnect: ensuring required API firebasedataconnect.googleapis.com is enabled... 
+[info] i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled... 
+[debug] [2025-11-27T07:13:32.789Z] Checked if tokens are valid: true, expires at: 1764231211305
+[debug] [2025-11-27T07:13:32.789Z] Checked if tokens are valid: true, expires at: 1764231211305
+[debug] [2025-11-27T07:13:32.790Z] >>> [apiv2][query] GET https://firebasedataconnect.googleapis.com/v1/projects/gettuppent-production/locations/-/services [none]
+[debug] [2025-11-27T07:13:33.373Z] <<< [apiv2][status] GET https://firebasedataconnect.googleapis.com/v1/projects/gettuppent-production/locations/-/services 200
+[debug] [2025-11-27T07:13:33.373Z] <<< [apiv2][body] GET https://firebasedataconnect.googleapis.com/v1/projects/gettuppent-production/locations/-/services {}
+[info] i  : ensuring required API cloudaicompanion.googleapis.com is enabled... 
+[debug] [2025-11-27T07:14:29.281Z] Checked if tokens are valid: true, expires at: 1764231211305
+[debug] [2025-11-27T07:14:29.282Z] Checked if tokens are valid: true, expires at: 1764231211305
+[debug] [2025-11-27T07:14:29.282Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/gettuppent-production/billingInfo [none]
+[debug] [2025-11-27T07:14:29.564Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/gettuppent-production/billingInfo 200
+[debug] [2025-11-27T07:14:29.564Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/gettuppent-production/billingInfo {"name":"projects/gettuppent-production/billingInfo","projectId":"gettuppent-production","billingAccountName":"","billingEnabled":false}
+[debug] [2025-11-27T07:14:29.565Z] Checked if tokens are valid: true, expires at: 1764231211305
+[debug] [2025-11-27T07:14:29.565Z] Checked if tokens are valid: true, expires at: 1764231211305
+[debug] [2025-11-27T07:14:29.567Z] >>> [apiv2][query] GET https://monitoring.googleapis.com/v3/projects/gettuppent-production/timeSeries/ filter=metric.type%3D%22serviceruntime.googleapis.com%2Fquota%2Fallocation%2Fusage%22+AND+metric.label.quota_metric+%3D+%22sqladmin.googleapis.com%2Ffdc_lifetime_free_trial_per_project%22&interval.endTime=2025-11-27T07%3A14%3A29.565Z&interval.startTime=2025-11-20T07%3A14%3A29.565Z
+[debug] [2025-11-27T07:14:30.453Z] <<< [apiv2][status] GET https://monitoring.googleapis.com/v3/projects/gettuppent-production/timeSeries/ 200
+[debug] [2025-11-27T07:14:30.454Z] <<< [apiv2][body] GET https://monitoring.googleapis.com/v3/projects/gettuppent-production/timeSeries/ {"unit":"1"}
+[info] +  dataconnect: Detected existing apps . (admin_node), . (web) 

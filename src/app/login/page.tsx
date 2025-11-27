@@ -3,7 +3,8 @@
 import { useState, FormEvent } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { Loader2, Lock, AlertCircle, Crown } from 'lucide-react';
 
 export default function LoginPage() {
@@ -12,6 +13,8 @@ export default function LoginPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const redirectTo = searchParams.get('redirect') || '/admin/leads';
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -20,7 +23,7 @@ export default function LoginPage() {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            router.push('/admin/leads');
+            router.push(redirectTo);
         } catch (err: any) {
             console.error('Login error:', err);
             if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
@@ -100,6 +103,14 @@ export default function LoginPage() {
                             )}
                         </button>
                     </form>
+                    <div className="mt-6 text-center">
+                        <p className="text-gray-500 text-sm">
+                            Don't have an account?{' '}
+                            <Link href="/register" className="text-brand-pink hover:underline">
+                                Create one
+                            </Link>
+                        </p>
+                    </div>
                 </div>
 
                 <p className="text-center text-gray-600 text-xs mt-8">

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, BookOpen, FileText, Settings, LogOut, Crown, Database, Gauge, Users, Camera, CreditCard } from 'lucide-react';
+import { LayoutDashboard, BookOpen, FileText, Settings, LogOut, Crown, Gauge, Users, Camera, CreditCard } from 'lucide-react';
 import AuthGuard from '@/components/AuthGuard';
 import { useAuth } from '@/context/AuthContext';
 
@@ -15,14 +15,13 @@ export default function AdminLayout({
     const { signOut } = useAuth();
 
     const navigation = [
+        { name: 'Dashboard', href: '/admin/dashboard', icon: Gauge },
         { name: 'Leads', href: '/admin/leads', icon: LayoutDashboard },
         { name: 'Clients', href: '/admin/clients', icon: Users },
         { name: 'Shoots', href: '/admin/shoots', icon: Camera },
         { name: 'Invoices', href: '/admin/invoices', icon: CreditCard },
-        { name: 'Knowledge Base', href: '/admin/knowledge', icon: BookOpen },
+        { name: 'Knowledge Base', href: '/admin', icon: BookOpen },
         { name: 'Content', href: '/admin/content', icon: FileText },
-        { name: 'Operations', href: '/ops', icon: Gauge },
-        { name: 'Migrate', href: '/admin/migrate', icon: Database },
         { name: 'Settings', href: '/admin/settings', icon: Settings },
     ];
 

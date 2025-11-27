@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Sparkles, Zap, Users, Play, Star, CheckCircle, Crown, Video, TrendingUp, Lock, Database, Terminal } from 'lucide-react';
+import { ArrowRight, Zap, Users, Play, Star, CheckCircle, Crown, Video, TrendingUp, Lock } from 'lucide-react';
 import { useCMS } from '@/hooks/useCMS';
 import LandingSkeleton from '@/components/LandingSkeleton';
+import MobileNav from '@/components/MobileNav';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -37,6 +38,29 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white overflow-x-hidden perspective-1000 font-sans selection:bg-brand-gold selection:text-black">
+
+      {/* Navigation Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#050505]/90 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-tighter">
+            <Crown className="h-6 w-6 text-brand-gold" />
+            GETTUPP<span className="text-brand-gold">ENT</span>
+          </Link>
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="/services" className="text-gray-400 hover:text-white transition-colors font-medium">Services</Link>
+            <Link href="/gallery" className="text-gray-400 hover:text-white transition-colors font-medium">Gallery</Link>
+            <Link href="/shop" className="text-gray-400 hover:text-brand-pink transition-colors font-medium">Shop</Link>
+            <Link href="/schedule" className="text-gray-400 hover:text-white transition-colors font-medium">Book Now</Link>
+          </nav>
+          <div className="hidden md:flex items-center gap-4">
+            <Link href="/login" className="text-gray-400 hover:text-white transition-colors font-medium">Login</Link>
+            <Link href="/register" className="px-4 py-2 bg-brand-gold text-black font-bold rounded-lg hover:bg-white transition-colors">
+              Get Started
+            </Link>
+          </div>
+          <MobileNav />
+        </div>
+      </header>
 
       {/* 3D Background Grid */}
       <div
@@ -396,18 +420,57 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="py-20 border-t border-white/10 bg-[#020202] px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-2xl font-black tracking-tighter">
-            GETTUPP<span className="text-brand-gold">ENT</span>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+            {/* Brand */}
+            <div>
+              <div className="text-2xl font-black tracking-tighter mb-4">
+                GETTUPP<span className="text-brand-gold">ENT</span>
+              </div>
+              <p className="text-gray-500 text-sm max-w-xs">
+                Premier nightlife photography for Minneapolis venues. 
+                We don't just post. We pack venues.
+              </p>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Services</h4>
+              <div className="flex flex-col gap-2 text-gray-500">
+                <Link href="/services" className="hover:text-white transition-colors">Photography Packages</Link>
+                <Link href="/schedule?tier=pilot" className="hover:text-white transition-colors">Pilot Night ($345)</Link>
+                <Link href="/gallery" className="hover:text-white transition-colors">Photo Gallery</Link>
+              </div>
+            </div>
+
+            {/* Shop */}
+            <div>
+              <h4 className="font-bold text-brand-pink mb-4 uppercase tracking-wider text-sm">GettUpp Girls</h4>
+              <div className="flex flex-col gap-2 text-gray-500">
+                <Link href="/shop" className="hover:text-brand-pink transition-colors">Apparel Catalog</Link>
+              </div>
+            </div>
+
+            {/* Account */}
+            <div>
+              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Account</h4>
+              <div className="flex flex-col gap-2 text-gray-500">
+                <Link href="/login" className="hover:text-white transition-colors">Client Login</Link>
+                <Link href="/register" className="hover:text-white transition-colors">Register</Link>
+                <Link href="/portal" className="hover:text-white transition-colors">Client Dashboard</Link>
+              </div>
+            </div>
           </div>
-          <div className="flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-500">
-            <Link href="#" className="hover:text-white transition-colors">Instagram</Link>
-            <Link href="#" className="hover:text-white transition-colors">TikTok</Link>
-            <Link href="#" className="hover:text-white transition-colors">Contact</Link>
-            <Link href="/admin" className="hover:text-brand-gold transition-colors">Staff Login</Link>
-          </div>
-          <div className="text-gray-600 text-xs uppercase tracking-widest">
-            &copy; 2025 GettUpp ENT. All Rights Reserved.
+          
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10">
+            <div className="flex gap-6 text-sm font-bold uppercase tracking-widest text-gray-500">
+              <a href="https://instagram.com/gettuppent" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
+              <a href="https://tiktok.com/@gettuppent" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">TikTok</a>
+              <Link href="/admin" className="hover:text-brand-gold transition-colors">Staff Login</Link>
+            </div>
+            <div className="text-gray-600 text-xs uppercase tracking-widest">
+              &copy; 2025 GettUpp ENT. All Rights Reserved.
+            </div>
           </div>
         </div>
       </footer>

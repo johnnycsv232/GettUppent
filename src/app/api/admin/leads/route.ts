@@ -59,3 +59,55 @@ export async function GET(req: NextRequest) {
     );
   }
 }
+
+/**
+ * POST /api/admin/leads
+ * Create a new lead manually
+ */
+export async function POST(req: NextRequest) {
+  const authResult = await validateAuth(req);
+  if (!authResult.success) return authResult.response;
+
+  try {
+    const body = await req.json();
+    
+    const { name, email, venue } = body;
+    if (!name || !email) {
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields: name, email' },
+        { status: 400 }
+      );
+    }
+
+    const now = new Date();
+    const leadData = {
+      name,
+      email,
+      phone: body.phone || null,
+      instagram: body.instagram || null,
+      venue: venue || body.name,
+      status: body.status || 'Pending',
+      qualificationScore: body.qualificationScore || 50,
+      source: body.source || 'admin_manual',
+      notes: body.notes || null,
+      createdAt: now,
+      updatedAt: now,
+    };
+
+    const docRef = await adminDb().collection('leads').add(leadData);
+
+    const response: ApiResponse<{ id: string }> = {
+      success: true,
+      data: { id: docRef.id },
+      message: 'Lead created successfully',
+    };
+
+    return NextResponse.json(response, { status: 201 });
+  } catch (error) {
+    console.error('Error creating lead:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to create lead' },
+      { status: 500 }
+    );
+  }
+}

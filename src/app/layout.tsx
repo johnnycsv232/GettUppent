@@ -3,6 +3,8 @@ import { Inter, Poppins, Oswald } from 'next/font/google'
 import React from 'react'
 import './globals.css'
 import { AuthProvider } from '@/context/AuthContext'
+import { ToastProvider } from '@/components/Toast'
+import { CartProvider } from '@/context/CartContext'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({
@@ -44,7 +46,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} ${oswald.variable} antialiased`}>
         <AuthProvider>
-          {children}
+          <CartProvider>
+            <ToastProvider>
+              {children}
+            </ToastProvider>
+          </CartProvider>
         </AuthProvider>
       </body>
     </html>

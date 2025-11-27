@@ -203,58 +203,58 @@ export interface StripeProduct {
 
 export const STRIPE_PRODUCTS: Record<ClientTier, StripeProduct> = {
   pilot: {
-    name: 'GettUpp Pilot',
-    description: 'Introductory photo session - Perfect for first-timers',
+    name: 'GettUpp Pilot Night',
+    description: 'Test the engine before you commit. One week. Full production. Zero risk.',
     tier: 'pilot',
-    price: 29900,  // $299
+    price: 34500,  // $345
     features: [
-      '1-hour photo session',
-      '10 edited digital images',
-      'Online gallery access',
-      '48-hour turnaround',
+      '1 On-Site Content Shoot',
+      '30 High-End Edited Photos',
+      '72h Delivery Turnaround',
+      'Social Strategy Audit',
     ],
   },
   t1: {
     name: 'GettUpp Tier 1',
-    description: 'Basic package for emerging creators',
+    description: 'Consistent content for growing venues',
     tier: 't1',
-    price: 59900,  // $599
+    price: 44500,  // $445/mo
     features: [
-      '2-hour photo session',
-      '25 edited digital images',
-      'Online gallery access',
-      '1 outfit change',
-      '7-day turnaround',
+      '2 Shoots per Month',
+      '60 Edited Photos',
+      '72h Delivery',
+      'Private Gallery Access',
+      'Monthly Strategy Call',
     ],
   },
   t2: {
     name: 'GettUpp Tier 2',
-    description: 'Standard package for serious creators',
+    description: 'Dominate your feed with premium content',
     tier: 't2',
-    price: 99900,  // $999
+    price: 69500,  // $695/mo
     features: [
-      '3-hour photo session',
-      '50 edited digital images',
-      'Online gallery access',
-      '3 outfit changes',
-      'Location scouting',
-      '5-day turnaround',
+      '4 Shoots per Month',
+      '120 Edited Photos',
+      '48h Delivery',
+      'Private Gallery Access',
+      'Bi-Weekly Strategy Calls',
+      'Priority Scheduling',
     ],
   },
   vip: {
     name: 'GettUpp VIP',
-    description: 'Premium package for professional creators',
+    description: 'Full-service content domination for elite venues',
     tier: 'vip',
-    price: 199900,  // $1999
+    price: 99500,  // $995/mo
     features: [
-      'Full-day photo session (8 hours)',
-      '100+ edited digital images',
-      'Private online gallery',
-      'Unlimited outfit changes',
-      'Multiple locations',
-      'Video content included',
-      'Priority 3-day turnaround',
-      'Dedicated account manager',
+      'Unlimited Shoots',
+      'Unlimited Photos',
+      '24h Delivery',
+      'Dedicated Photographer',
+      'Weekly Strategy Sessions',
+      'Same-Day Edits Available',
+      'GettUpp Girls Integration',
+      'Exclusive Event Coverage',
     ],
   },
 };

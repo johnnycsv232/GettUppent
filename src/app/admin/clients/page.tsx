@@ -365,10 +365,10 @@ function ConvertLeadModal({ onClose, onSuccess }: { onClose: () => void; onSucce
               onChange={(e) => setTier(e.target.value as ClientTier)}
               className="w-full bg-gray-800 border border-white/10 rounded-lg px-3 py-2 text-white"
             >
-              <option value="pilot">Pilot - $299</option>
-              <option value="t1">Tier 1 - $599</option>
-              <option value="t2">Tier 2 - $999</option>
-              <option value="vip">VIP - $1,999</option>
+              <option value="pilot">Pilot - $345</option>
+              <option value="t1">Tier 1 - $445/mo</option>
+              <option value="t2">Tier 2 - $695/mo</option>
+              <option value="vip">VIP - $995/mo</option>
             </select>
           </div>
 

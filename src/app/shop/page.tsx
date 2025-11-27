@@ -1,16 +1,27 @@
-import { getAllKnowledge } from '@/lib/knowledge';
-import Link from 'next/link';
-import { ShoppingBag, Star, Zap, ArrowRight } from 'lucide-react';
-import { KnowledgeNode } from '@/types/knowledge';
+'use client';
 
-export default async function ShopPage() {
-  const allData: KnowledgeNode[] = await getAllKnowledge();
-  
-  // Extract Girls Data
-  const overview = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_overview');
-  const slogans = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_hero_slogans')?.content.replace('Current core slogan set for GettUpp Girls apparel: ', '').split(', ') || [];
-  const products = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_product_types')?.content.replace('Initial GettUpp Girls product range: ', '').split(', ').map((p: string) => p.replace(/^\(\d+\)\s*/, '')) || [];
-  const pricing = allData.find((n: KnowledgeNode) => n.sub_topic === 'gettupp_girls_price_strategy');
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { ShoppingBag, Star, Zap, ArrowRight, Crown, Loader2 } from 'lucide-react';
+
+// Static product data for GettUpp Girls
+const PRODUCTS = [
+  { id: 'crop_fitted', name: 'Fitted Crop Top', price: 38, bestseller: true },
+  { id: 'crop_relaxed', name: 'Relaxed Crop Top', price: 36, bestseller: false },
+  { id: 'crop_bundle', name: 'Crop Bundle (3)', price: 99, bestseller: false },
+  { id: 'hoodie', name: 'Oversized Hoodie', price: 65, bestseller: false },
+  { id: 'bodysuit', name: 'Logo Bodysuit', price: 48, bestseller: false },
+  { id: 'shorts', name: 'Biker Shorts', price: 32, bestseller: false },
+];
+
+const SLOGANS = [
+  "She's Not Basic",
+  "Main Character Energy", 
+  "We Don't Do Boring"
+];
+
+export default function ShopPage() {
+  const [loading, setLoading] = useState(false);
 
   return (
     <main className="min-h-screen bg-[#0B0B0D] text-white">
@@ -28,14 +39,14 @@ export default async function ShopPage() {
           GETTUPP <span className="text-brand-pink">GIRLS</span>
         </h1>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto relative z-10">
-          {overview?.content || "The unofficial uniform for the nightlife elite."}
+          The unofficial uniform for the nightlife elite.
         </p>
 
         {/* Slogans ticker (simulated) */}
         <div className="mt-12 flex flex-wrap justify-center gap-3 relative z-10">
-          {slogans.slice(0, 3).map((slogan: string, i: number) => (
+          {SLOGANS.map((slogan, i) => (
             <span key={i} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-bold uppercase tracking-wide text-brand-gold">
-              "{slogan.replace(/'/g, '')}"
+              "{slogan}"
             </span>
           ))}
         </div>
@@ -49,8 +60,8 @@ export default async function ShopPage() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product: string, i: number) => (
-            <div key={i} className="group relative bg-[#121214] rounded-xl border border-white/5 overflow-hidden hover:border-brand-pink/50 transition-colors">
+          {PRODUCTS.map((product) => (
+            <div key={product.id} className="group relative bg-[#121214] rounded-xl border border-white/5 overflow-hidden hover:border-brand-pink/50 transition-colors">
               {/* Image Placeholder */}
               <div className="aspect-[4/5] bg-gradient-to-b from-gray-800 to-black flex items-center justify-center relative">
                 <div className="text-center opacity-30 group-hover:opacity-50 transition-opacity">
@@ -58,17 +69,20 @@ export default async function ShopPage() {
                   <span className="block text-6xl font-heading font-bold text-brand-pink">GIRLS</span>
                 </div>
                 {/* Badge */}
-                {i === 0 && <div className="absolute top-4 left-4 bg-brand-gold text-black text-xs font-bold px-2 py-1 uppercase">Best Seller</div>}
+                {product.bestseller && <div className="absolute top-4 left-4 bg-brand-gold text-black text-xs font-bold px-2 py-1 uppercase">Best Seller</div>}
               </div>
               
               <div className="p-6">
-                <h3 className="font-bold text-lg text-white mb-1">{product}</h3>
+                <h3 className="font-bold text-lg text-white mb-1">{product.name}</h3>
                 <p className="text-sm text-gray-500 mb-4">Premium fitted cut. QR-enabled.</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-brand-gold font-mono font-bold">$38.00</span>
-                  <button className="p-2 rounded-full bg-white text-black hover:bg-brand-pink hover:text-white transition-colors">
+                  <span className="text-brand-gold font-mono font-bold">${product.price.toFixed(2)}</span>
+                  <Link 
+                    href={`/checkout?product=${product.id}`}
+                    className="p-2 rounded-full bg-white text-black hover:bg-brand-pink hover:text-white transition-colors"
+                  >
                     <ArrowRight className="w-5 h-5" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -95,10 +109,13 @@ export default async function ShopPage() {
             </div>
           </div>
           <div className="p-8 rounded-2xl border border-white/10 bg-black">
-            <h4 className="text-xs font-bold text-gray-500 uppercase mb-4">Pricing Strategy (Internal)</h4>
-            <p className="text-sm text-gray-300 font-mono">
-              {pricing?.content || "Strategy pending..."}
-            </p>
+            <h4 className="text-xs font-bold text-gray-500 uppercase mb-4">Premium Quality</h4>
+            <ul className="text-sm text-gray-300 space-y-2">
+              <li>• High-quality cotton blend</li>
+              <li>• Signature embroidered logo</li>
+              <li>• QR gallery link on tag</li>
+              <li>• Limited edition drops</li>
+            </ul>
           </div>
         </div>
       </div>
