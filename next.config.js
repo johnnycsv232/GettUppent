@@ -33,6 +33,13 @@ const nextConfig = {
                     { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
                 ],
             },
+            // Allow Tally embeds
+            {
+                source: '/pilot-intake',
+                headers: [
+                    { key: 'X-Frame-Options', value: 'ALLOWALL' },
+                ],
+            },
         ];
     },
 };

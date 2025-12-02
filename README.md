@@ -1,123 +1,110 @@
-# 🚀 GettUpp Business OS
+# 🚀 GettUpp ENT | Nightlife Content Engine
 
-> **"Time is the Business."** — A comprehensive business operating system built with AI-powered agents, stunning design, and automation-first philosophy.
+> **"Time is the Business."** — The operating system for nightlife content creation, automation, and business intelligence.
 
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-
-[![CI/CD Pipeline](https://github.com/johnnycsv232/GettUppent/actions/workflows/ci.yml/badge.svg)](https://github.com/johnnycsv232/GettUppent/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/johnnycsv232/GettUppent/actions/workflows/codeql.yml/badge.svg)](https://github.com/johnnycsv232/GettUppent/actions/workflows/codeql.yml)
-[![Deploy](https://github.com/johnnycsv232/GettUppent/actions/workflows/deploy.yml/badge.svg)](https://github.com/johnnycsv232/GettUppent/actions/workflows/deploy.yml)
+[![Firebase](https://img.shields.io/badge/Firebase-10-orange?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
+[![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe)](https://stripe.com/)
 
 ---
 
 ## 📋 Overview
 
-**GettUpp Business OS** is a next-generation business management platform that combines:
-- 🤖 **AI Agent Workforce** - Autonomous agents for marketing, finance, operations, and more
-- 💎 **Premium Design System** - Glassmorphic UI with brand gold & neon pink aesthetics
-- 📊 **Knowledge RAG Assistant** - Relationship-aware AI assistant for business intelligence
-- 🎯 **Automation-First** - Every feature designed for speed, ROI, and scalability
+**GettUpp ENT** is a specialized platform designed to replace flaky freelancers with a predictable content engine for Minneapolis nightlife venues. It combines high-end aesthetics with powerful automation to streamline booking, content delivery, and business operations.
 
-Built for **GettUpp ENT** - a nightlife photography and content creation business that needed to scale operations through intelligent automation.
+### Core Value Proposition
+- **Predictable Delivery**: 24-72h turnaround time
+- **ROI Focused**: Interactive tools to demonstrate value
+- **Automation First**: Integrated booking, payments, and client management
 
 ---
 
 ## ✨ Features
 
-### 🤖 AI Agent Fleet (Coming Phase 2)
-- **Social Media Agent** - Automated content creation and posting
-- **Finance Agent** - Invoice generation and financial tracking
+### 🎮 Interactive Experience
+- **ROI Calculator**: Real-time business value estimation
+- **Comparison Slider**: Before/After visual showcase of editing quality
+- **Magnetic UI**: Interactive buttons and elements using Framer Motion
+- **Live Notifications**: Real-time social proof and engagement alerts
 
+### 🤖 AI & Automation
+- **Knowledge RAG Assistant**: Context-aware AI assistant for business intelligence
+- **Smart Booking**: Integrated scheduling and Tally intake forms
+- **Exit Intent**: Conversion-optimized popup on exit
 
-### 💬 Knowledge RAG Assistant
-- Relationship-aware context understanding
-- Multi-agent conversation routing
-- Admin knowledge base management
-- Real-time search and retrieval
+### 🛍️ Commerce & Operations
+- **Stripe Integration**: Secure checkout and payment processing
+- **Admin Dashboard**: Full CMS for managing content and clients
+- **Client Portal**: Dedicated area for deliverables
 
-### 🎨 Premium UI/UX
-- **Glassmorphic Design** - Modern, translucent interfaces
-- **Magnetic Buttons** - Interactive, reactive components
-- **Reveal Animations** - Smooth scroll-triggered effects
-- **Dark Mode First** - Rich black (#080808) with gold (#D9AE43) and pink (#FF3C93) accents
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Technology |
-|----------|-----------|
-| **Framework** | Next.js 14 (App Router) |
-| **Language** | TypeScript (Strict Mode) |
-| **Styling** | Tailwind CSS |
-| **Animation** | Framer Motion |
-| **Icons** | Lucide React |
-| **Data** | Flat-file JSON + Node.js Agents |
+### 🎨 Premium Design System ("Aggressive Luxury")
+- **Glassmorphism**: Modern, translucent UI with `backdrop-blur`
+- **Brand Identity**: Rich Black (`#0B0B0D`), Gold (`#D9AE43`), Neon Pink (`#FF3C93`)
+- **Typography**: Oswald (Headings) & Inter (Body)
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/johnnycsv232/GettUppent.git
-   cd GettUppent
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   ```
-   http://localhost:3000
-   ```
-
-### Build for Production
-```bash
-npm run build
-npm start
-```
-
----
-
-## 📁 Project Structure
+## 🏗️ Architecture
 
 ```
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── admin/              # Admin dashboard
-│   │   ├── api/                # API routes
-│   │   ├── ops/                # Operations dashboard
-│   │   ├── pilot-intake/       # Client intake forms
-│   │   └── shop/               # E-commerce pages
-│   ├── components/             # Reusable UI components
-│   │   └── landing/            # Landing page components
-│   ├── lib/                    # Helper functions & business logic
-│   ├── types/                  # TypeScript interfaces
-│   └── gettupp-ent/            # Agent scripts & backend
-│       ├── agents/             # AI agent implementations
-│       ├── carousel_output/    # Generated carousel content
-│       ├── crm-scripts/        # Lead processing
-│       ├── docs/               # Business documentation
-│       └── ops-tools/          # Operational utilities
-├── public/                     # Static assets
-├── BRAND ASSETS/               # Brand identity files
-└── PROJECT_RULES.md            # Development standards
+src/
+├── app/                          # Next.js 14 App Router
+│   ├── page.tsx                  # Landing (Hero + 12 sections)
+│   ├── services/                 # Pricing tiers
+│   ├── about/                    # Founder bio
+│   ├── case-studies/             # Venue ROI results
+│   ├── faq/                      # 8-item accordion
+│   ├── contact/                  # SMS CTA + form
+│   ├── gallery/                  # Public portfolio
+│   ├── shop/                     # E-commerce store
+│   ├── schedule/                 # Booking flow
+│   ├── pilot-intake/             # Tally form integration
+│   ├── checkout/                 # Stripe checkout
+│   ├── login/ & register/        # Firebase Auth
+│   ├── terms/ & privacy/         # Legal pages
+│   ├── admin/                    # Protected dashboard
+│   │   ├── dashboard/            # Analytics
+│   │   ├── clients/              # Client management
+│   │   ├── shoots/               # Scheduling
+│   │   ├── invoices/             # Billing
+│   │   ├── content/              # CMS editor
+│   │   ├── knowledge/            # RAG knowledge base
+│   │   ├── leads/                # Lead pipeline
+│   │   └── settings/             # Config
+│   ├── portal/[clientId]/        # Client portals
+│   ├── ops/                      # Operations
+│   └── api/                      # API routes
+│       ├── assistant/            # AI chat
+│       ├── booking/              # Booking handler
+│       ├── checkout/             # Stripe sessions
+│       ├── public-checkout/      # Guest checkout
+│       └── webhooks/tally/       # Tally webhooks
+│
+├── components/
+│   ├── ui/                       # Conversion Infrastructure
+│   │   ├── MagneticButton.tsx    # Physics-based button
+│   │   ├── AnimatedCounter.tsx   # Spring-animated stats
+│   │   ├── LiveNotification.tsx  # Social proof popups
+│   │   ├── ExitIntentPopup.tsx   # Exit intent modal
+│   │   └── ScrollProgressBar.tsx # Progress indicator
+│   │
+│   ├── interactive/              # "Holy Shit" Components
+│   │   ├── RoiCalculator.tsx     # Revenue calculator
+│   │   └── ComparisonSlider.tsx  # Before/after slider
+│   │
+│   ├── client/                   # Client components
+│   │   └── PilotIntakeForm.tsx   # Tally embed
+│   │
+│   ├── landing/                  # Homepage sections
+│   ├── sections/                 # Page sections
+│   └── admin/                    # Admin components
+│
+├── context/                      # React contexts
+├── hooks/                        # Custom hooks
+├── lib/                          # Core utilities
+└── types/                        # TypeScript types
 ```
 
 ---
@@ -125,92 +112,152 @@ npm start
 ## 🎨 Design System
 
 ### Color Palette
-```css
---background: #080808    /* Rich Black */
---surface: #1A1A1D       /* Dark Grey */
---brand-gold: #D9AE43    /* Metallic Gold */
---brand-pink: #FF3C93    /* Neon Pink */
---text-primary: #FFFFFF  /* White */
---text-secondary: #9CA3AF /* Gray-400 */
-```
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `brandGold` | `#D9AE43` | Primary accent, CTAs |
+| `gold-light` | `#FCF6BA` | Gradient highlights |
+| `gold-dark` | `#BF953F` | Gradient anchors |
+| `brandPink` | `#FF3C93` | Secondary accent |
+| `ink` | `#0B0B0D` | Background |
+| `surface` | `#1F1F24` | Cards, containers |
 
 ### Typography
-- **Headings**: Oswald (Uppercase, Bold, Condensed)
-- **Body**: Inter / System Sans
-- **Code**: JetBrains Mono
-
-### UI Patterns
-- **Glassmorphism**: `bg-white/5 backdrop-blur-md`
-- **Borders**: `border-white/10`
-- **Hover Effects**: Magnetic and reactive interactions
-- **Gradients**: Gold/Pink accents for CTAs
+- **Headings**: Oswald (bold, uppercase)
+- **Body**: Inter (clean, readable)
 
 ---
 
-## 🤖 Agent System (Coming Phase 2)
-> The Agent System is currently under development for the next release.
+## ⚡ Conversion Infrastructure
 
+### Global Engines (via `layout.tsx`)
+| Component | Description |
+|-----------|-------------|
+| `ScrollProgressBar` | Gold-to-pink gradient at viewport top |
+| `LiveNotification` | Rotating Minneapolis venue social proof |
+| `ExitIntentPopup` | "$1.6K waste" pilot offer on exit |
+
+### Interactive Components
+| Component | Description |
+|-----------|-------------|
+| `MagneticButton` | Physics-based button (Fitts's Law) |
+| `AnimatedCounter` | Spring-animated numbers on scroll |
+| `RoiCalculator` | Slider-driven revenue projection |
+| `ComparisonSlider` | Draggable before/after reveal |
 
 ---
 
-## 📊 Key Pages
+## 📄 Routes
 
+### Public
 | Route | Description |
 |-------|-------------|
-| `/` | Landing page with portfolio showcase |
-| `/admin` | Knowledge base management dashboard |
-| `/ops` | Operations and agent control panel |
-| `/pilot-intake` | Client onboarding form |
-| `/shop` | E-commerce storefront |
-| `/api/assistant` | RAG assistant API endpoint |
-| `/api/admin/knowledge` | Knowledge CRUD operations |
+| `/` | Landing with 12 conversion sections |
+| `/services` | Pricing tiers |
+| `/about` | Founder profile |
+| `/case-studies` | 3 venue ROI cases |
+| `/faq` | 8-item accordion |
+| `/contact` | SMS CTA + form |
+| `/gallery` | Portfolio grid |
+| `/shop` | E-commerce |
+| `/schedule` | Booking flow |
+| `/pilot-intake` | Tally intake form |
+| `/terms` | Terms of service |
+| `/privacy` | Privacy policy |
+
+### Protected
+| Route | Description |
+|-------|-------------|
+| `/admin/*` | Admin dashboard |
+| `/portal/[clientId]` | Client portal |
+| `/ops` | Operations |
+
+---
+
+## 🔌 API Routes
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/assistant` | POST | AI chat |
+| `/api/booking` | POST | Booking handler |
+| `/api/checkout` | POST | Stripe session |
+| `/api/public-checkout` | POST | Guest checkout |
+| `/api/webhooks/tally` | POST | Tally submissions |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Framework** | Next.js 14 (App Router) |
+| **Language** | TypeScript 5.3 |
+| **Styling** | Tailwind CSS 3.4 |
+| **Animation** | Framer Motion |
+| **Database** | Firebase Firestore |
+| **Auth** | Firebase Authentication |
+| **Payments** | Stripe |
+| **Forms** | Tally Forms |
+| **Icons** | Lucide React |
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+Visit **http://localhost:3000**
 
 ---
 
 ## 🔐 Environment Variables
 
-Create a `.env.local` file:
+Create `.env.local`:
 
 ```env
-# Add your environment variables here
-# Example:
-# NEXT_PUBLIC_API_URL=https://api.example.com
-# GEMINI_API_KEY=your_api_key_here
+# Firebase Client
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
+
+# Firebase Admin
+FIREBASE_PROJECT_ID=
+FIREBASE_CLIENT_EMAIL=
+FIREBASE_PRIVATE_KEY=
+
+# Stripe
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+
+# Tally
+TALLY_WEBHOOK_SECRET=
+
+# App
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
 ---
 
-## 📝 Development Standards
+## 💰 Business Model
 
-### Code Quality
-- ✅ **Type Safety**: No `any` types - define interfaces in `src/types`
-- ✅ **Component Size**: Keep components focused and under 200 lines
-- ✅ **Server vs Client**: Use `'use client'` only when necessary
-- ✅ **Performance**: Optimize images, lazy load components
-
-### Naming Conventions
-- **Components**: PascalCase (`PricingCard.tsx`)
-- **Functions**: camelCase (`calculateRoi`)
-- **Files**: kebab-case for utilities, PascalCase for components
-
-See [PROJECT_RULES.md](./PROJECT_RULES.md) for complete standards.
-
----
-
-## 🎯 Roadmap
-
-- [ ] Firebase integration for real-time data
-- [ ] Stripe payment processing
-- [ ] Advanced analytics dashboard
-- [ ] Mobile app (React Native)
-- [ ] Multi-tenant support
-- [ ] API marketplace for agents
-
----
-
-## 🤝 Contributing
-
-This is a proprietary project for **GettUpp ENT**. For collaboration inquiries, please contact the team.
+### Pricing Tiers
+| Tier | Price | Deliverables |
+|------|-------|--------------|
+| **Pilot Night** | $345 | 1 shoot, 30 photos, 72h delivery |
+| **Weekend Warrior** | $695/mo | 2 shoots, 60 photos + 2 reels |
+| **VIP Partner** | $995/mo | 3 shoots, 90 photos + 4 reels |
 
 ---
 
@@ -220,25 +267,8 @@ Private & Proprietary - © 2025 GettUpp ENT
 
 ---
 
-## 👨‍💻 Author
-
-**GettUpp ENT**  
-Built with ⚡ by the GettUpp team
-
----
-
-## 🙏 Acknowledgments
-
-- Next.js team for the incredible framework
-- Vercel for hosting and deployment
-- The open-source community for amazing tools
-
----
-
 <div align="center">
 
-**[Website](https://gettupp.com)** • **[Instagram](https://instagram.com/gettupp)** • **[Contact](mailto:finan@gettupp.com)**
-
-Made with 💎 and ⚡ in the USA
+**Made with 💎 and ⚡ in Minneapolis**
 
 </div>
