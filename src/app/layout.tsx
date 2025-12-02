@@ -8,6 +8,7 @@ import { CartProvider } from '@/context/CartContext'
 import ScrollProgressBar from '@/components/ui/ScrollProgressBar'
 import LiveNotification from '@/components/ui/LiveNotification'
 import ExitIntentPopup from '@/components/ui/ExitIntentPopup'
+import MobileStickyCTA from '@/components/ui/MobileStickyCTA'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({
@@ -55,6 +56,7 @@ export default function RootLayout({
               {children}
               <LiveNotification />
               <ExitIntentPopup />
+              <MobileStickyCTA />
             </ToastProvider>
           </CartProvider>
         </AuthProvider>

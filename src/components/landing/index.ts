@@ -10,3 +10,8 @@ export { default as GettUppGirlsSection } from './GettUppGirlsSection';
 export { default as EditingOnlySection } from './EditingOnlySection';
 export { default as GallerySection } from './GallerySection';
 export { default as FooterSection } from './FooterSection';
+
+// New Audit-Optimized Sections
+export { default as BenefitsSection } from './BenefitsSection';
+export { default as ProcessSection } from './ProcessSection';
+export { default as ProofSection } from './ProofSection';

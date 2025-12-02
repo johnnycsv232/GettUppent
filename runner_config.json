@@ -1,0 +1,14 @@
+{
+    "sparse_prefixes": [
+        "src/",
+        "infra/",
+        "packages/",
+        ".github/",
+        "agents/",
+        "docs/"
+    ],
+    "max_files_per_task": 5000,
+    "timeout_seconds_per_module": 600,
+    "retain_audit_artifacts_at": "infra/audit/",
+    "secrets_allowed": []
+}

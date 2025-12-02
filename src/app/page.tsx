@@ -9,6 +9,9 @@ import MagneticButton from '@/components/ui/MagneticButton';
 import { Hero, StatsBar } from '@/components/sections/home';
 import { RoiCalculator, ComparisonSlider } from '@/components/interactive';
 import {
+  BenefitsSection,
+  ProcessSection,
+  ProofSection,
   JohnnyCageSection,
   ShotClockSection,
   TestimonialsSection,
@@ -58,43 +61,49 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO SECTION - High Conversion */}
+      {/* HERO - Audit optimized with proof chips + trust strip */}
       <Hero />
 
-      {/* STATS BAR - Animated Counters */}
+      {/* STATS BAR - Animated social proof */}
       <StatsBar />
+
+      {/* BENEFITS - What you get & why it converts */}
+      <BenefitsSection />
+
+      {/* PRICING - Clear tier comparison table */}
+      <PricingSection />
+
+      {/* PROCESS - What happens when you click */}
+      <ProcessSection />
+
+      {/* PROOF - Stats, testimonials, logos */}
+      <ProofSection />
 
       {/* COMPARISON SLIDER - Before/After */}
       <ComparisonSlider />
 
-      {/* ROI CALCULATOR - Interactive */}
+      {/* ROI CALCULATOR - Interactive revenue projection */}
       <RoiCalculator />
 
-      {/* JOHNNY CAGE / MEET THE FACE */}
-      <JohnnyCageSection />
-
-      {/* SHOT CLOCK / DEADLINE SECTION */}
-      <ShotClockSection />
-
-      {/* TESTIMONIALS */}
-      <TestimonialsSection />
-
-      {/* PILOT OFFER */}
+      {/* PILOT OFFER - Limited spots CTA */}
       <PilotOfferSection />
 
-      {/* PRICING TIERS */}
-      <PricingSection />
+      {/* JOHNNY CAGE - Meet the founder */}
+      <JohnnyCageSection />
 
-      {/* GETTUPP GIRLS */}
-      <GettUppGirlsSection />
+      {/* SHOT CLOCK - Delivery guarantee */}
+      <ShotClockSection />
 
-      {/* EDITING ONLY */}
+      {/* TESTIMONIALS - Extended social proof */}
+      <TestimonialsSection />
+
+      {/* EDITING ONLY - Additional service */}
       <EditingOnlySection />
 
-      {/* GALLERY */}
+      {/* GALLERY - Portfolio preview */}
       <GallerySection />
 
-      {/* FOOTER */}
+      {/* FOOTER - SMS CTA + links */}
       <FooterSection />
     </div>
   );
