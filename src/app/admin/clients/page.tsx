@@ -52,6 +52,7 @@ export default function ClientsPage() {
     active: 'bg-green-500/20 text-green-400',
     completed: 'bg-blue-500/20 text-blue-400',
     cancelled: 'bg-red-500/20 text-red-400',
+    past_due: 'bg-orange-500/20 text-orange-400',
   };
 
   const tierColors: Record<ClientTier, string> = {

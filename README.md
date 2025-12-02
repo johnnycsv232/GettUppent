@@ -26,16 +26,10 @@ Built for **GettUpp ENT** - a nightlife photography and content creation busines
 
 ## ✨ Features
 
-### 🤖 AI Agent Fleet
+### 🤖 AI Agent Fleet (Coming Phase 2)
 - **Social Media Agent** - Automated content creation and posting
-- **Carousel Agent** - Instagram carousel generation with data-driven design
-- **Marketing Agent** - Campaign management and analytics
 - **Finance Agent** - Invoice generation and financial tracking
-- **Operations Agent** - Asset tracking and workflow automation
-- **Legal Agent** - Policy management and compliance
-- **HR Agent** - Team management and documentation
-- **Website Agent** - CRO optimization and analytics
-- **Outbound Agent** - Lead processing and outreach automation
+
 
 ### 💬 Knowledge RAG Assistant
 - Relationship-aware context understanding
@@ -153,28 +147,9 @@ npm start
 
 ---
 
-## 🤖 Agent System
+## 🤖 Agent System (Coming Phase 2)
+> The Agent System is currently under development for the next release.
 
-### Running Agents
-
-**Via CLI (manage.js)**
-```bash
-cd src/gettupp-ent
-node manage.js
-```
-
-**Individual Agent Execution**
-```bash
-node src/gettupp-ent/agents/CarouselAgent.js
-node src/gettupp-ent/agents/FinanceAgent.js
-```
-
-### Agent Architecture
-All agents extend a base autonomous framework:
-- **Autonomous Decision Making** - Agents decide when to act
-- **Tool Integration** - External API and service connections
-- **Logging & Monitoring** - Console and file-based tracking
-- **Modular Design** - Easy to add/remove agents
 
 ---
 

@@ -1,3 +1,6 @@
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { validateAuth } from '@/lib/auth-api';
 import { adminDb } from '@/lib/firebase-admin';
