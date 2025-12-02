@@ -6,6 +6,7 @@ import { collection, query, where, onSnapshot, orderBy, Timestamp } from 'fireba
 import { Clock, AlertTriangle, TrendingUp, FileText, Zap, ChevronRight, Users, Calendar, DollarSign, Loader2 } from 'lucide-react';
 import { KnowledgeNode } from '@/types/knowledge';
 import Link from 'next/link';
+import AuthGuard from '@/components/AuthGuard';
 
 interface Lead {
     id: string;
@@ -94,14 +95,17 @@ export default function OpsDashboard() {
 
     if (loading) {
         return (
-            <main className="min-h-screen bg-[#0B0B0D] flex items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-brand-gold" />
-            </main>
+            <AuthGuard>
+                <main className="min-h-screen bg-[#0B0B0D] flex items-center justify-center">
+                    <Loader2 className="h-8 w-8 animate-spin text-brand-gold" />
+                </main>
+            </AuthGuard>
         );
     }
 
     return (
-        <main className="min-h-screen bg-[#0B0B0D] p-8">
+        <AuthGuard>
+            <main className="min-h-screen bg-[#0B0B0D] p-8">
             <header className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-center">
                 <div>
                     <h1 className="font-heading text-3xl font-bold text-white">Ops Command</h1>
@@ -278,6 +282,7 @@ export default function OpsDashboard() {
                     </div>
                 </div>
             </div>
-        </main>
+            </main>
+        </AuthGuard>
     );
 }

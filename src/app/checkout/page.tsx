@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Crown, CreditCard, Shield, CheckCircle, Loader2, ArrowRight } from 'lucide-react';
+import { CreditCard, Shield, CheckCircle, Loader2, ArrowRight } from 'lucide-react';
+import PublicHeader from '@/components/PublicHeader';
 
 const PRODUCTS = {
   pilot: { name: 'Pilot Night', price: 345, description: 'One-time photography session - 30 photos, 72h delivery' },
@@ -61,23 +62,26 @@ export default function CheckoutPage() {
 
   if (!product) {
     return (
-      <main className="min-h-screen bg-[#080808] text-white flex items-center justify-center p-6">
-        <div className="max-w-md w-full text-center">
-          <h1 className="text-2xl font-bold mb-4">No Product Selected</h1>
-          <p className="text-gray-400 mb-8">Please select a product or service to checkout.</p>
-          <div className="flex flex-col gap-4">
-            <Link
-              href="/services"
-              className="px-6 py-3 bg-brand-gold text-black font-bold rounded-lg hover:bg-brand-gold/90"
-            >
-              View Photography Services
-            </Link>
-            <Link
-              href="/shop"
-              className="px-6 py-3 bg-brand-pink text-white font-bold rounded-lg hover:bg-brand-pink/90"
-            >
-              Shop Apparel
-            </Link>
+      <main className="min-h-screen bg-[#080808] text-white">
+        <PublicHeader />
+        <div className="flex items-center justify-center min-h-[70vh] p-6">
+          <div className="max-w-md w-full text-center">
+            <h1 className="text-2xl font-bold mb-4">No Product Selected</h1>
+            <p className="text-gray-400 mb-8">Please select a product or service to checkout.</p>
+            <div className="flex flex-col gap-4">
+              <Link
+                href="/services"
+                className="px-6 py-3.5 bg-brand-gold text-black font-bold uppercase tracking-wider hover:bg-white hover:shadow-[0_0_30px_rgba(217,174,67,0.4)] transition-all"
+              >
+                View Photography Services
+              </Link>
+              <Link
+                href="/shop"
+                className="px-6 py-3.5 bg-brand-pink text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all"
+              >
+                Shop Apparel
+              </Link>
+            </div>
           </div>
         </div>
       </main>
@@ -86,19 +90,7 @@ export default function CheckoutPage() {
 
   return (
     <main className="min-h-screen bg-[#080808] text-white">
-      {/* Header */}
-      <header className="border-b border-white/10 bg-[#080808]/90 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-tighter">
-            <Crown className="h-6 w-6 text-brand-gold" />
-            GETTUPP<span className="text-brand-gold">ENT</span>
-          </Link>
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
-            <Shield className="h-4 w-4" />
-            Secure Checkout
-          </div>
-        </div>
-      </header>
+      <PublicHeader />
 
       <div className="max-w-2xl mx-auto px-6 py-16">
         {/* Order Summary */}
@@ -175,7 +167,7 @@ export default function CheckoutPage() {
         <button
           onClick={handleCheckout}
           disabled={isLoading}
-          className="w-full py-4 bg-brand-gold text-black font-black text-lg rounded-lg hover:bg-white transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+          className="group w-full py-4 bg-brand-gold text-black font-black text-lg uppercase tracking-wider hover:bg-white transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 hover:shadow-[0_0_30px_rgba(217,174,67,0.4)]"
         >
           {isLoading ? (
             <Loader2 className="h-6 w-6 animate-spin" />
@@ -183,7 +175,7 @@ export default function CheckoutPage() {
             <>
               <CreditCard className="h-6 w-6" />
               Proceed to Payment
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </>
           )}
         </button>

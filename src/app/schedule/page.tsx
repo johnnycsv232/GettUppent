@@ -3,7 +3,9 @@
 import { useState, FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Crown, Calendar, Clock, MapPin, User, Phone, Mail, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
+import { Calendar, Clock, MapPin, User, Phone, Mail, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
+import PublicHeader from '@/components/PublicHeader';
+import PublicFooter from '@/components/PublicFooter';
 
 type TierKey = 'pilot' | 't1' | 't2' | 'vip';
 
@@ -102,20 +104,7 @@ export default function SchedulePage() {
 
   return (
     <main className="min-h-screen bg-[#080808] text-white">
-      {/* Header */}
-      <header className="border-b border-white/10 bg-[#080808]/90 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-tighter">
-            <Crown className="h-6 w-6 text-brand-gold" />
-            GETTUPP<span className="text-brand-gold">ENT</span>
-          </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link>
-            <Link href="/gallery" className="text-gray-400 hover:text-white transition-colors">Gallery</Link>
-            <Link href="/shop" className="text-gray-400 hover:text-white transition-colors">Shop</Link>
-          </nav>
-        </div>
-      </header>
+      <PublicHeader />
 
       <div className="max-w-3xl mx-auto px-6 py-12">
         {/* Progress Steps */}
@@ -377,6 +366,8 @@ export default function SchedulePage() {
           )}
         </form>
       </div>
+      
+      <PublicFooter />
     </main>
   );
 }

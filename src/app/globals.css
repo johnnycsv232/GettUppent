@@ -28,22 +28,78 @@ body {
   filter: drop-shadow(0px 2px 0px rgba(0,0,0,0.5));
 }
 
-.text-neon-pink {
-  color: #FF007F;
-  text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+/* Premium Gold Gradient Text - GettUpp Signature Look */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #D4AF37 50%, #FBF5B7 75%, #AA771C 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+.gold-gradient-text-animated {
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #D4AF37 50%, #FBF5B7 75%, #AA771C 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Pink Gradient Text */
+.pink-gradient-text {
+  background: linear-gradient(135deg, #FF3C93, #FF6B9D, #FF3C93);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold Gradient Button */
+.gold-gradient-button {
+  background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+  background-size: 200% auto;
+  color: #0B0B0D;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.gold-gradient-button:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+}
+
+/* Glass Morphism Card - GettUpp Style */
 .glass-card {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 215, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: #FFD700;
+  border-color: rgba(212, 175, 55, 0.5);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -10px rgba(255, 215, 0, 0.15);
+  box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.15);
+}
+
+/* Gold Border Glow */
+.gold-border-glow {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* Pink Border Glow */
+.pink-border-glow {
+  border: 1px solid rgba(255, 60, 147, 0.3);
+  box-shadow: 0 0 20px rgba(255, 60, 147, 0.15);
+}
+
+.text-neon-pink {
+  color: #FF3C93;
+  text-shadow: 0 0 10px rgba(255, 60, 147, 0.5);
 }
 
 /* Noise Texture */
@@ -78,30 +134,92 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 174, 67, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(217, 174, 67, 0.1); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.4s ease-out;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* Smooth page transitions */
+main {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #D9AE43;
+  outline-offset: 2px;
+}
+
+/* Smooth hover transitions for all interactive elements */
+a, button {
+  transition: all 0.2s ease-out;
+}
+
+/* Input placeholder styling */
+::placeholder {
+  color: #4B5563;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(217, 174, 67, 0.3);
+  color: white;
 }
 

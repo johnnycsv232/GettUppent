@@ -21,14 +21,16 @@ function getAdminApp(): App {
     }
 
     // Parse the private key (it comes as a string with escaped newlines)
-    const privateKey = getRequiredServerEnv('FIREBASE_ADMIN_PRIVATE_KEY').replace(/\\n/g, '\n');
+    const privateKey = getRequiredServerEnv('FIREBASE_PRIVATE_KEY').replace(/\\n/g, '\n');
 
     adminApp = initializeApp({
         credential: cert({
-            projectId: getRequiredServerEnv('FIREBASE_ADMIN_PROJECT_ID'),
-            clientEmail: getRequiredServerEnv('FIREBASE_ADMIN_CLIENT_EMAIL'),
+            projectId: getRequiredServerEnv('FIREBASE_PROJECT_ID'),
+            clientEmail: getRequiredServerEnv('FIREBASE_CLIENT_EMAIL'),
             privateKey: privateKey,
         }),
+        databaseURL: process.env.FIREBASE_DATABASE_URL,
+        storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     });
 
     return adminApp;

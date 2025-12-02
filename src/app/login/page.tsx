@@ -5,7 +5,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Loader2, Lock, AlertCircle, Crown } from 'lucide-react';
+import { Loader2, Lock, AlertCircle, Crown, ArrowRight } from 'lucide-react';
+import PublicHeader from '@/components/PublicHeader';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ export default function LoginPage() {
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
     const searchParams = useSearchParams();
-    const redirectTo = searchParams.get('redirect') || '/admin/leads';
+    const redirectTo = searchParams.get('redirect') || '/portal';
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -39,7 +40,10 @@ export default function LoginPage() {
     };
 
     return (
-        <main className="min-h-screen bg-[#080808] flex items-center justify-center p-6">
+        <main className="min-h-screen bg-[#080808]">
+            <PublicHeader />
+            
+            <div className="flex items-center justify-center min-h-[80vh] p-6">
             <div className="w-full max-w-md">
 
                 {/* Logo */}
@@ -47,10 +51,10 @@ export default function LoginPage() {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold/10 mb-4">
                         <Crown className="h-8 w-8 text-brand-gold" />
                     </div>
-                    <h1 className="text-3xl font-black text-white tracking-tight">
-                        GETTUPP<span className="text-brand-gold">OS</span>
+                    <h1 className="text-3xl font-black text-white tracking-tight uppercase">
+                        Welcome Back
                     </h1>
-                    <p className="text-gray-500 mt-2">Restricted Access</p>
+                    <p className="text-gray-500 mt-2">Sign in to your account</p>
                 </div>
 
                 {/* Login Card */}
@@ -91,14 +95,14 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full bg-brand-gold hover:bg-brand-gold/90 text-black font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="group w-full bg-brand-gold hover:bg-white text-black font-bold py-3.5 uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed hover:shadow-[0_0_30px_rgba(217,174,67,0.4)]"
                         >
                             {isLoading ? (
                                 <Loader2 className="h-5 w-5 animate-spin" />
                             ) : (
                                 <>
-                                    <Lock className="h-4 w-4" />
                                     Sign In
+                                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                 </>
                             )}
                         </button>
@@ -114,8 +118,9 @@ export default function LoginPage() {
                 </div>
 
                 <p className="text-center text-gray-600 text-xs mt-8">
-                    &copy; {new Date().getFullYear()} GettUpp Entertainment. All rights reserved.
+                    &copy; {new Date().getFullYear()} GettUpp ENT. All rights reserved.
                 </p>
+            </div>
             </div>
         </main>
     );

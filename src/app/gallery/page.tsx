@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Crown, Image, Download, X, ChevronLeft, ChevronRight, Lock } from 'lucide-react';
+import { Image, Download, X, ChevronLeft, ChevronRight, Lock } from 'lucide-react';
+import PublicHeader from '@/components/PublicHeader';
+import PublicFooter from '@/components/PublicFooter';
 
 // Sample gallery data - in production this would come from Firestore
 const SAMPLE_GALLERIES = [
@@ -51,23 +53,7 @@ export default function GalleryPage() {
 
   return (
     <main className="min-h-screen bg-[#080808] text-white">
-      {/* Header */}
-      <header className="border-b border-white/10 bg-[#080808]/90 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-tighter">
-            <Crown className="h-6 w-6 text-brand-gold" />
-            GETTUPP<span className="text-brand-gold">ENT</span>
-          </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link>
-            <Link href="/gallery" className="text-brand-gold font-medium">Gallery</Link>
-            <Link href="/shop" className="text-gray-400 hover:text-white transition-colors">Shop</Link>
-            <Link href="/login" className="px-4 py-2 bg-brand-gold text-black font-bold rounded-lg hover:bg-brand-gold/90">
-              Login
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <PublicHeader />
 
       {/* Hero */}
       <section className="py-16 px-6 text-center border-b border-white/10">
@@ -243,23 +229,7 @@ export default function GalleryPage() {
         </div>
       )}
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-white/10 bg-[#020202] px-6 mt-20">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-xl font-black tracking-tighter">
-            GETTUPP<span className="text-brand-gold">ENT</span>
-          </div>
-          <div className="flex gap-6 text-sm font-bold uppercase tracking-widest text-gray-500">
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            <Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link>
-            <Link href="/shop" className="hover:text-brand-pink transition-colors">Shop</Link>
-            <Link href="/login" className="hover:text-brand-gold transition-colors">Login</Link>
-          </div>
-          <div className="text-gray-600 text-xs uppercase tracking-widest">
-            &copy; 2025 GettUpp ENT
-          </div>
-        </div>
-      </footer>
+      <PublicFooter />
     </main>
   );
 }

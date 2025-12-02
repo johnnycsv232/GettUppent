@@ -1,8 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { User, onAuthStateChanged, signOut as firebaseSignOut } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { User } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
 interface AuthContextType {
@@ -17,22 +16,58 @@ const AuthContext = createContext<AuthContextType>({
     signOut: async () => { },
 });
 
+// Check if Firebase is configured
+const isFirebaseConfigured = () => {
+    return typeof window !== 'undefined' && 
+        process.env.NEXT_PUBLIC_FIREBASE_API_KEY && 
+        process.env.NEXT_PUBLIC_FIREBASE_API_KEY !== 'YOUR_FIREBASE_API_KEY';
+};
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setUser(user);
+        if (!isFirebaseConfigured()) {
+            // Firebase not configured, skip auth
             setLoading(false);
-        });
+            return;
+        }
 
-        return () => unsubscribe();
+        let unsubscribe: (() => void) | undefined;
+
+        const initAuth = async () => {
+            try {
+                const { auth } = await import('@/lib/firebase');
+                const { onAuthStateChanged } = await import('firebase/auth');
+                
+                unsubscribe = onAuthStateChanged(auth, (user) => {
+                    setUser(user);
+                    setLoading(false);
+                });
+            } catch (error) {
+                console.error('Error initializing auth:', error);
+                setLoading(false);
+            }
+        };
+
+        initAuth();
+
+        return () => {
+            if (unsubscribe) unsubscribe();
+        };
     }, []);
 
     const signOut = async () => {
+        if (!isFirebaseConfigured()) {
+            router.push('/login');
+            return;
+        }
+
         try {
+            const { auth } = await import('@/lib/firebase');
+            const { signOut: firebaseSignOut } = await import('firebase/auth');
             await firebaseSignOut(auth);
             router.push('/login');
         } catch (error) {

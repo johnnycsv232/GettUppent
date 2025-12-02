@@ -5,6 +5,9 @@ import './globals.css'
 import { AuthProvider } from '@/context/AuthContext'
 import { ToastProvider } from '@/components/Toast'
 import { CartProvider } from '@/context/CartContext'
+import ScrollProgressBar from '@/components/ui/ScrollProgressBar'
+import LiveNotification from '@/components/ui/LiveNotification'
+import ExitIntentPopup from '@/components/ui/ExitIntentPopup'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({
@@ -48,7 +51,10 @@ export default function RootLayout({
         <AuthProvider>
           <CartProvider>
             <ToastProvider>
+              <ScrollProgressBar />
               {children}
+              <LiveNotification />
+              <ExitIntentPopup />
             </ToastProvider>
           </CartProvider>
         </AuthProvider>

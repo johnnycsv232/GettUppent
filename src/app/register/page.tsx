@@ -5,7 +5,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Loader2, UserPlus, AlertCircle, Crown, ArrowLeft } from 'lucide-react';
+import { Loader2, UserPlus, AlertCircle, Crown, ArrowRight } from 'lucide-react';
+import PublicHeader from '@/components/PublicHeader';
 
 export default function RegisterPage() {
     const [email, setEmail] = useState('');
@@ -52,24 +53,21 @@ export default function RegisterPage() {
     };
 
     return (
-        <main className="min-h-screen bg-[#080808] flex items-center justify-center p-6">
+        <main className="min-h-screen bg-[#080808]">
+            <PublicHeader />
+            
+            <div className="flex items-center justify-center min-h-[80vh] p-6">
             <div className="w-full max-w-md">
-
-                {/* Back Link */}
-                <Link href="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-white mb-8 transition-colors">
-                    <ArrowLeft className="h-4 w-4" />
-                    Back to Home
-                </Link>
 
                 {/* Logo */}
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-pink/10 mb-4">
                         <Crown className="h-8 w-8 text-brand-pink" />
                     </div>
-                    <h1 className="text-3xl font-black text-white tracking-tight">
-                        Create Account
+                    <h1 className="text-3xl font-black text-white tracking-tight uppercase">
+                        Get Started
                     </h1>
-                    <p className="text-gray-500 mt-2">Join the GettUpp network</p>
+                    <p className="text-gray-500 mt-2">Create your GettUpp account</p>
                 </div>
 
                 {/* Register Card */}
@@ -122,14 +120,14 @@ export default function RegisterPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full bg-brand-pink hover:bg-brand-pink/90 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="group w-full bg-brand-pink hover:bg-white hover:text-black text-white font-bold py-3.5 uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed hover:shadow-[0_0_30px_rgba(236,72,153,0.4)]"
                         >
                             {isLoading ? (
                                 <Loader2 className="h-5 w-5 animate-spin" />
                             ) : (
                                 <>
-                                    <UserPlus className="h-4 w-4" />
                                     Create Account
+                                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                 </>
                             )}
                         </button>
@@ -146,8 +144,9 @@ export default function RegisterPage() {
                 </div>
 
                 <p className="text-center text-gray-600 text-xs mt-8">
-                    &copy; {new Date().getFullYear()} GettUpp Entertainment. All rights reserved.
+                    &copy; {new Date().getFullYear()} GettUpp ENT. All rights reserved.
                 </p>
+            </div>
             </div>
         </main>
     );

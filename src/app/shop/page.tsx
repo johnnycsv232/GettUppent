@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { ShoppingBag, Star, Zap, ArrowRight, Crown, Loader2 } from 'lucide-react';
+import { Star, Zap, ArrowRight } from 'lucide-react';
+import PublicHeader from '@/components/PublicHeader';
+import PublicFooter from '@/components/PublicFooter';
 
 // Static product data for GettUpp Girls
 const PRODUCTS = [
@@ -21,13 +23,12 @@ const SLOGANS = [
 ];
 
 export default function ShopPage() {
-  const [loading, setLoading] = useState(false);
-
   return (
     <main className="min-h-screen bg-[#0B0B0D] text-white">
+      <PublicHeader />
       
-      {/* HEADER */}
-      <div className="bg-white text-black py-3 text-center text-xs font-bold tracking-widest uppercase">
+      {/* HEADER ANNOUNCEMENT */}
+      <div className="bg-brand-pink text-white py-3 text-center text-xs font-bold tracking-widest uppercase">
         Official Launch • Q4 2025 • Limited Drops
       </div>
 
@@ -120,6 +121,7 @@ export default function ShopPage() {
         </div>
       </div>
 
+      <PublicFooter />
     </main>
   );
 }
