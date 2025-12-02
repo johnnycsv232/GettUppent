@@ -1,0 +1,480 @@
+{
+  "total_files": 266,
+  "top_paths": [
+    {
+      "path": "src",
+      "file_count": 170,
+      "bytes": 891601
+    },
+    {
+      "path": "src/app",
+      "file_count": 57,
+      "bytes": 434944
+    },
+    {
+      "path": "src/components",
+      "file_count": 53,
+      "bytes": 166250
+    },
+    {
+      "path": "src/gettupp-ent",
+      "file_count": 43,
+      "bytes": 237214
+    },
+    {
+      "path": "src/gettupp-ent/carousel_output",
+      "file_count": 26,
+      "bytes": 75927
+    },
+    {
+      "path": "BRAND ASSETS",
+      "file_count": 23,
+      "bytes": 33560052
+    },
+    {
+      "path": "src/components/landing",
+      "file_count": 21,
+      "bytes": 79415
+    },
+    {
+      "path": "src/app/api",
+      "file_count": 18,
+      "bytes": 75881
+    },
+    {
+      "path": "src/app/admin",
+      "file_count": 17,
+      "bytes": 201775
+    },
+    {
+      "path": "src/gettupp-ent/docs",
+      "file_count": 14,
+      "bytes": 15152
+    },
+    {
+      "path": "scripts",
+      "file_count": 12,
+      "bytes": 26640
+    },
+    {
+      "path": "src/lib",
+      "file_count": 10,
+      "bytes": 26442
+    },
+    {
+      "path": "src/app/api/admin",
+      "file_count": 9,
+      "bytes": 30389
+    },
+    {
+      "path": "src/components/ui",
+      "file_count": 9,
+      "bytes": 24504
+    },
+    {
+      "path": ".github",
+      "file_count": 7,
+      "bytes": 17709
+    },
+    {
+      "path": "public",
+      "file_count": 7,
+      "bytes": 9658329
+    },
+    {
+      "path": "public/brand",
+      "file_count": 7,
+      "bytes": 9658329
+    },
+    {
+      "path": "src/gettupp-ent/carousel_output/carousel_2_packages_system",
+      "file_count": 7,
+      "bytes": 9374
+    },
+    {
+      "path": "infra",
+      "file_count": 6,
+      "bytes": 9690
+    },
+    {
+      "path": "infra/audit",
+      "file_count": 6,
+      "bytes": 9690
+    },
+    {
+      "path": "src/gettupp-ent/carousel_output/carousel_1_who_problem_brand",
+      "file_count": 6,
+      "bytes": 6956
+    },
+    {
+      "path": "src/gettupp-ent/carousel_output/carousel_3_proof_cta",
+      "file_count": 6,
+      "bytes": 6846
+    },
+    {
+      "path": "src/gettupp-ent/carousel_output/generated_images",
+      "file_count": 6,
+      "bytes": 49404
+    },
+    {
+      "path": "src/app/admin/components",
+      "file_count": 5,
+      "bytes": 50157
+    },
+    {
+      "path": "src/components/sections",
+      "file_count": 5,
+      "bytes": 8373
+    },
+    {
+      "path": ".github/workflows",
+      "file_count": 4,
+      "bytes": 6516
+    },
+    {
+      "path": "docs",
+      "file_count": 4,
+      "bytes": 20477
+    },
+    {
+      "path": "src/types",
+      "file_count": 4,
+      "bytes": 17940
+    },
+    {
+      "path": "src/app/api/stripe",
+      "file_count": 3,
+      "bytes": 11703
+    },
+    {
+      "path": "src/app/checkout",
+      "file_count": 3,
+      "bytes": 12080
+    },
+    {
+      "path": "src/components/admin",
+      "file_count": 3,
+      "bytes": 5455
+    },
+    {
+      "path": "src/components/interactive",
+      "file_count": 3,
+      "bytes": 12379
+    },
+    {
+      "path": "src/components/sections/home",
+      "file_count": 3,
+      "bytes": 5599
+    },
+    {
+      "path": "src/gettupp-ent/docs/growth",
+      "file_count": 3,
+      "bytes": 5747
+    },
+    {
+      "path": "src/gettupp-ent/docs/legal",
+      "file_count": 3,
+      "bytes": 1299
+    },
+    {
+      "path": "src/app/api/admin/clients",
+      "file_count": 2,
+      "bytes": 8557
+    },
+    {
+      "path": "src/app/api/admin/knowledge",
+      "file_count": 2,
+      "bytes": 4577
+    },
+    {
+      "path": "src/app/api/admin/shoots",
+      "file_count": 2,
+      "bytes": 10145
+    },
+    {
+      "path": "src/app/api/webhooks",
+      "file_count": 2,
+      "bytes": 24923
+    },
+    {
+      "path": "src/app/portal",
+      "file_count": 2,
+      "bytes": 18967
+    },
+    {
+      "path": "src/components/client",
+      "file_count": 2,
+      "bytes": 6298
+    },
+    {
+      "path": "src/components/sections/services",
+      "file_count": 2,
+      "bytes": 2774
+    },
+    {
+      "path": "src/context",
+      "file_count": 2,
+      "bytes": 5146
+    },
+    {
+      "path": "src/gettupp-ent/docs/analytics",
+      "file_count": 2,
+      "bytes": 1062
+    },
+    {
+      "path": "src/gettupp-ent/docs/governance",
+      "file_count": 2,
+      "bytes": 2246
+    },
+    {
+      "path": ".firebase",
+      "file_count": 1,
+      "bytes": 21472655
+    },
+    {
+      "path": ".firebase/logs",
+      "file_count": 1,
+      "bytes": 21472655
+    },
+    {
+      "path": "src/app/about",
+      "file_count": 1,
+      "bytes": 8539
+    },
+    {
+      "path": "src/app/admin/clients",
+      "file_count": 1,
+      "bytes": 14396
+    },
+    {
+      "path": "src/app/admin/content",
+      "file_count": 1,
+      "bytes": 17836
+    },
+    {
+      "path": "src/app/admin/dashboard",
+      "file_count": 1,
+      "bytes": 9060
+    },
+    {
+      "path": "src/app/admin/invoices",
+      "file_count": 1,
+      "bytes": 8028
+    },
+    {
+      "path": "src/app/admin/knowledge",
+      "file_count": 1,
+      "bytes": 19719
+    },
+    {
+      "path": "src/app/admin/leads",
+      "file_count": 1,
+      "bytes": 17407
+    },
+    {
+      "path": "src/app/admin/migrate",
+      "file_count": 1,
+      "bytes": 10652
+    },
+    {
+      "path": "src/app/admin/seed",
+      "file_count": 1,
+      "bytes": 7232
+    },
+    {
+      "path": "src/app/admin/settings",
+      "file_count": 1,
+      "bytes": 13016
+    },
+    {
+      "path": "src/app/admin/shoots",
+      "file_count": 1,
+      "bytes": 17141
+    },
+    {
+      "path": "src/app/api/admin/clients/[id]",
+      "file_count": 1,
+      "bytes": 4772
+    },
+    {
+      "path": "src/app/api/admin/invoices",
+      "file_count": 1,
+      "bytes": 1639
+    },
+    {
+      "path": "src/app/api/admin/knowledge/[id]",
+      "file_count": 1,
+      "bytes": 2457
+    },
+    {
+      "path": "src/app/api/admin/leads",
+      "file_count": 1,
+      "bytes": 3148
+    },
+    {
+      "path": "src/app/api/admin/payments",
+      "file_count": 1,
+      "bytes": 2323
+    },
+    {
+      "path": "src/app/api/admin/shoots/[id]",
+      "file_count": 1,
+      "bytes": 5299
+    },
+    {
+      "path": "src/app/api/assistant",
+      "file_count": 1,
+      "bytes": 489
+    },
+    {
+      "path": "src/app/api/booking",
+      "file_count": 1,
+      "bytes": 1636
+    },
+    {
+      "path": "src/app/api/checkout",
+      "file_count": 1,
+      "bytes": 3407
+    },
+    {
+      "path": "src/app/api/public-checkout",
+      "file_count": 1,
+      "bytes": 3334
+    },
+    {
+      "path": "src/app/api/stripe/portal",
+      "file_count": 1,
+      "bytes": 1955
+    },
+    {
+      "path": "src/app/api/stripe/refunds",
+      "file_count": 1,
+      "bytes": 3296
+    },
+    {
+      "path": "src/app/api/stripe/subscriptions",
+      "file_count": 1,
+      "bytes": 6452
+    },
+    {
+      "path": "src/app/api/webhooks/stripe",
+      "file_count": 1,
+      "bytes": 19474
+    },
+    {
+      "path": "src/app/api/webhooks/tally",
+      "file_count": 1,
+      "bytes": 5449
+    },
+    {
+      "path": "src/app/case-studies",
+      "file_count": 1,
+      "bytes": 7487
+    },
+    {
+      "path": "src/app/checkout/cancelled",
+      "file_count": 1,
+      "bytes": 1464
+    },
+    {
+      "path": "src/app/checkout/success",
+      "file_count": 1,
+      "bytes": 1752
+    },
+    {
+      "path": "src/app/contact",
+      "file_count": 1,
+      "bytes": 6684
+    },
+    {
+      "path": "src/app/faq",
+      "file_count": 1,
+      "bytes": 7466
+    },
+    {
+      "path": "src/app/gallery",
+      "file_count": 1,
+      "bytes": 9842
+    },
+    {
+      "path": "src/app/login",
+      "file_count": 1,
+      "bytes": 6144
+    },
+    {
+      "path": "src/app/ops",
+      "file_count": 1,
+      "bytes": 14782
+    },
+    {
+      "path": "src/app/pilot-intake",
+      "file_count": 1,
+      "bytes": 7365
+    },
+    {
+      "path": "src/app/portal/[clientId]",
+      "file_count": 1,
+      "bytes": 7658
+    },
+    {
+      "path": "src/app/privacy",
+      "file_count": 1,
+      "bytes": 6575
+    },
+    {
+      "path": "src/app/register",
+      "file_count": 1,
+      "bytes": 7315
+    },
+    {
+      "path": "src/app/schedule",
+      "file_count": 1,
+      "bytes": 16248
+    },
+    {
+      "path": "src/app/services",
+      "file_count": 1,
+      "bytes": 5369
+    },
+    {
+      "path": "src/app/shop",
+      "file_count": 1,
+      "bytes": 5907
+    },
+    {
+      "path": "src/app/terms",
+      "file_count": 1,
+      "bytes": 5526
+    },
+    {
+      "path": "src/gettupp-ent/02_SELECTS",
+      "file_count": 1,
+      "bytes": 16
+    },
+    {
+      "path": "src/gettupp-ent/docs/brand",
+      "file_count": 1,
+      "bytes": 1169
+    },
+    {
+      "path": "src/gettupp-ent/docs/hr",
+      "file_count": 1,
+      "bytes": 117
+    },
+    {
+      "path": "src/gettupp-ent/docs/sops",
+      "file_count": 1,
+      "bytes": 1412
+    },
+    {
+      "path": "src/gettupp-ent/landing-page",
+      "file_count": 1,
+      "bytes": 15661
+    },
+    {
+      "path": "src/hooks",
+      "file_count": 1,
+      "bytes": 3665
+    }
+  ]
+}

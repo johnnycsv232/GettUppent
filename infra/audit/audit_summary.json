@@ -1,0 +1,68 @@
+{
+    "audit_timestamp": "2025-12-02T05:55:00-06:00",
+    "overall_risk_score": 85,
+    "risk_level": "LOW-MEDIUM",
+    "repository_stats": {
+        "total_files": 266,
+        "languages": [
+            "TypeScript",
+            "JSON",
+            "Markdown"
+        ],
+        "frameworks": [
+            "Next.js 14",
+            "Firebase",
+            "Stripe",
+            "Tailwind CSS"
+        ]
+    },
+    "critical_findings": [
+        {
+            "id": "SEC-001",
+            "severity": "MEDIUM",
+            "category": "Authorization",
+            "description": "Public write access to /leads collection in Firestore.",
+            "location": "firestore.rules:24",
+            "remediation": "Implement rate limiting or Captcha verification on the client-side before submission."
+        },
+        {
+            "id": "SEC-002",
+            "severity": "LOW",
+            "category": "Data Exposure",
+            "description": "Public read access to /site_content collection.",
+            "location": "firestore.rules:29",
+            "remediation": "Acceptable for CMS content, but ensure no PII is accidentally stored there."
+        },
+        {
+            "id": "OPS-001",
+            "severity": "LOW",
+            "category": "CI/CD",
+            "description": "CI/CD workflows exist but may need hardening for agentic deployments.",
+            "location": ".github/workflows/",
+            "remediation": "Add specific 'agent-gate' workflow to require human approval for agent-generated PRs."
+        }
+    ],
+    "module_summaries": {
+        "structure": "Well-organized Next.js App Router structure. High separation of concerns.",
+        "dependencies": "Modern stack (Next.js 14, Firebase 10). No obvious deprecated critical deps.",
+        "security": "Firestore rules use custom isAdmin() function. Good practice. Stripe webhooks present.",
+        "business_alignment": "Codebase reflects 'GettUpp ENT' branding and 'Johnny Cage' persona found in business docs."
+    },
+    "remediation_plan": [
+        {
+            "priority": "P0",
+            "action": "Implement Human-in-the-Loop (HITL) gate for Agent PRs.",
+            "owner": "Senior Security Architect"
+        },
+        {
+            "priority": "P1",
+            "action": "Verify Stripe Webhook signature validation in src/app/api/webhooks/stripe/route.ts.",
+            "owner": "Senior Backend Engineer"
+        },
+        {
+            "priority": "P2",
+            "action": "Add rate limiting to /leads API endpoint.",
+            "owner": "DevOps Engineer"
+        }
+    ]
+}

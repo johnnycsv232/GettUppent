@@ -80,10 +80,13 @@ export async function POST(req: NextRequest) {
     }
 
     // Create Checkout Session
+    // 🔐 TAX COMPLIANCE: MN Nontaxable Advertising Exemption
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: isSubscription ? 'subscription' : 'payment',
+      automatic_tax: { enabled: false }, // MN Advertising Services Exempt
+      tax_id_collection: { enabled: false },
       success_url: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${appUrl}/checkout/cancelled`,
       customer_email: email || undefined,

@@ -1,0 +1,274 @@
+[
+  {
+    "size": "383.77MB",
+    "path": ".\\.next"
+  },
+  {
+    "size": "313.28MB",
+    "path": ".\\.next\\cache"
+  },
+  {
+    "size": "312.35MB",
+    "path": ".\\.next\\cache\\webpack"
+  },
+  {
+    "size": "48.94MB",
+    "path": ".\\.next\\static"
+  },
+  {
+    "size": "47.26MB",
+    "path": ".\\.next\\static\\chunks"
+  },
+  {
+    "size": "32.01MB",
+    "path": ".\\BRAND ASSETS"
+  },
+  {
+    "size": "20.83MB",
+    "path": ".\\.firebase"
+  },
+  {
+    "size": "20.83MB",
+    "path": ".\\.firebase\\logs"
+  },
+  {
+    "size": "17.92MB",
+    "path": ".\\.next\\server"
+  },
+  {
+    "size": "14.05MB",
+    "path": ".\\.next\\server\\vendor-chunks"
+  },
+  {
+    "size": "9.21MB",
+    "path": ".\\public"
+  },
+  {
+    "size": "9.21MB",
+    "path": ".\\public\\brand"
+  },
+  {
+    "size": "3.86MB",
+    "path": ".\\.next\\server\\app"
+  },
+  {
+    "size": "1.13MB",
+    "path": ".\\.next\\static\\webpack"
+  },
+  {
+    "size": "0.87MB",
+    "path": ".\\src"
+  },
+  {
+    "size": "0.45MB",
+    "path": ".\\.next\\static\\media"
+  },
+  {
+    "size": "0.42MB",
+    "path": ".\\src\\app"
+  },
+  {
+    "size": "0.23MB",
+    "path": ".\\src\\gettupp-ent"
+  },
+  {
+    "size": "0.20MB",
+    "path": ".\\src\\app\\admin"
+  },
+  {
+    "size": "0.16MB",
+    "path": ".\\src\\components"
+  },
+  {
+    "size": "0.10MB",
+    "path": ".\\.next\\static\\css"
+  },
+  {
+    "size": "0.08MB",
+    "path": ".\\src\\components\\landing"
+  },
+  {
+    "size": "0.07MB",
+    "path": ".\\src\\app\\api"
+  },
+  {
+    "size": "0.07MB",
+    "path": ".\\src\\gettupp-ent\\carousel_output"
+  },
+  {
+    "size": "0.06MB",
+    "path": ".\\infra"
+  },
+  {
+    "size": "0.06MB",
+    "path": ".\\infra\\audit"
+  },
+  {
+    "size": "0.04MB",
+    "path": ".\\.next\\cache\\eslint"
+  },
+  {
+    "size": "0.04MB",
+    "path": ".\\.next\\types"
+  },
+  {
+    "size": "0.04MB",
+    "path": ".\\.next\\types\\app"
+  },
+  {
+    "size": "0.03MB",
+    "path": ".\\scripts"
+  },
+  {
+    "size": "0.03MB",
+    "path": ".\\src\\lib"
+  },
+  {
+    "size": "0.02MB",
+    "path": ".\\src\\components\\ui"
+  },
+  {
+    "size": "0.02MB",
+    "path": ".\\docs"
+  },
+  {
+    "size": "0.02MB",
+    "path": ".\\src\\app\\portal"
+  },
+  {
+    "size": "0.02MB",
+    "path": ".\\src\\types"
+  },
+  {
+    "size": "0.02MB",
+    "path": ".\\src\\app\\schedule"
+  },
+  {
+    "size": "0.02MB",
+    "path": ".\\src\\gettupp-ent\\landing-page"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\gettupp-ent\\docs"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\ops"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\components\\interactive"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\checkout"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\gallery"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\about"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\components\\sections"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\case-studies"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\faq"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\pilot-intake"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\register"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\contact"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\privacy"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\components\\client"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\login"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\shop"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\components\\admin"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\terms"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\app\\services"
+  },
+  {
+    "size": "0.01MB",
+    "path": ".\\src\\context"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\src\\hooks"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\.next\\static\\development"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\.vscode"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\src\\gettupp-ent\\02_SELECTS"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\.next\\cache\\swc"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\public\\images"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\public\\images\\hero"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\public\\images\\portfolio"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\public\\images\\team"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\src\\app\\pricing"
+  },
+  {
+    "size": "0.00MB",
+    "path": ".\\src\\gettupp-ent\\01_RAW"
+  }
+]

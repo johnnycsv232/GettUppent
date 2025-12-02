@@ -1,0 +1,152 @@
+{
+    "schema_version": "1.0",
+    "default_policy": "deny-all",
+    "agents": {
+        "Senior Product Architect": {
+            "role": "Product Strategy & Planning",
+            "initial_mode": "read-only",
+            "read_paths": [
+                "docs/",
+                "src/app/",
+                "GETTUPP_MASTER_UNIFIED*.json"
+            ],
+            "write_paths": [
+                "docs/specs/",
+                "implementation_plan.md"
+            ],
+            "required_approvers": 1
+        },
+        "Senior Frontend Engineer": {
+            "role": "UI/UX Implementation",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "src/components/",
+                "src/app/",
+                "tailwind.config.js"
+            ],
+            "write_paths": [
+                "src/components/",
+                "src/app/"
+            ],
+            "required_approvers": 1
+        },
+        "Senior Backend Engineer": {
+            "role": "API & Database Logic",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "src/lib/",
+                "src/app/api/",
+                "firebase.json"
+            ],
+            "write_paths": [
+                "src/lib/",
+                "src/app/api/"
+            ],
+            "required_approvers": 1
+        },
+        "Senior Security Architect": {
+            "role": "Security Auditing & Hardening",
+            "initial_mode": "audit",
+            "read_paths": [
+                "**"
+            ],
+            "write_paths": [
+                "infra/",
+                ".github/",
+                "firestore.rules",
+                "next.config.js"
+            ],
+            "required_approvers": 2
+        },
+        "DevOps Engineer": {
+            "role": "CI/CD & Infrastructure",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "infra/",
+                ".github/",
+                "vercel.json"
+            ],
+            "write_paths": [
+                "infra/",
+                ".github/",
+                "vercel.json"
+            ],
+            "required_approvers": 1
+        },
+        "QA Engineer": {
+            "role": "Testing & Validation",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "src/",
+                "tests/"
+            ],
+            "write_paths": [
+                "tests/"
+            ],
+            "required_approvers": 1
+        },
+        "Content Strategist": {
+            "role": "CMS & Copy Management",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "src/gettupp-ent/",
+                "public/"
+            ],
+            "write_paths": [
+                "src/gettupp-ent/",
+                "public/locales/"
+            ],
+            "required_approvers": 1
+        },
+        "Data Engineer": {
+            "role": "Analytics & Pipelines",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "src/lib/analytics/",
+                "src/app/api/webhooks/"
+            ],
+            "write_paths": [
+                "src/lib/analytics/"
+            ],
+            "required_approvers": 1
+        },
+        "AI Integration Specialist": {
+            "role": "LLM & Agent Integration",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "src/lib/agents/",
+                "src/app/api/assistant/"
+            ],
+            "write_paths": [
+                "src/lib/agents/",
+                "src/app/api/assistant/"
+            ],
+            "required_approvers": 1
+        },
+        "Stripe Specialist": {
+            "role": "Payment Integration",
+            "initial_mode": "interactive",
+            "read_paths": [
+                "src/lib/stripe.ts",
+                "src/app/api/stripe/"
+            ],
+            "write_paths": [
+                "src/lib/stripe.ts",
+                "src/app/api/stripe/"
+            ],
+            "required_approvers": 2
+        }
+    },
+    "global_constraints": {
+        "forbidden_files": [
+            ".env",
+            ".env.local",
+            "service-account.json"
+        ],
+        "max_tokens_per_run": 100000,
+        "require_human_approval_for": [
+            "DELETE operations",
+            "modifying .github/workflows"
+        ]
+    }
+}

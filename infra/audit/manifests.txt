@@ -1,0 +1,4 @@
+.\package-lock.json
+.\package.json
+.\.next\package.json
+.\.next\types\package.json

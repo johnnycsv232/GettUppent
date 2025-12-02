@@ -1,0 +1,130 @@
+{
+  "counts": [
+    [
+      "tsx",
+      87
+    ],
+    [
+      "ts",
+      39
+    ],
+    [
+      "json",
+      36
+    ],
+    [
+      "md",
+      34
+    ],
+    [
+      "js",
+      15
+    ],
+    [
+      "png",
+      14
+    ],
+    [
+      "pdf",
+      8
+    ],
+    [
+      "svg",
+      8
+    ],
+    [
+      "py",
+      6
+    ],
+    [
+      "yml",
+      4
+    ],
+    [
+      "html",
+      4
+    ],
+    [
+      "log",
+      2
+    ],
+    [
+      "example",
+      1
+    ],
+    [
+      "firebaserc",
+      1
+    ],
+    [
+      "gitignore",
+      1
+    ],
+    [
+      "zip",
+      1
+    ],
+    [
+      "rules",
+      1
+    ],
+    [
+      "bat",
+      1
+    ],
+    [
+      "css",
+      1
+    ],
+    [
+      "jpg",
+      1
+    ],
+    [
+      "txt",
+      1
+    ]
+  ],
+  "loc_estimates": {
+    "tsx": {
+      "sample_files": 10,
+      "avg_loc": 236
+    },
+    "ts": {
+      "sample_files": 10,
+      "avg_loc": 105
+    },
+    "json": {
+      "sample_files": 10,
+      "avg_loc": 1794
+    },
+    "md": {
+      "sample_files": 10,
+      "avg_loc": 130
+    },
+    "js": {
+      "sample_files": 10,
+      "avg_loc": 46
+    },
+    "png": {
+      "sample_files": 10,
+      "avg_loc": 5412
+    },
+    "pdf": {
+      "sample_files": 8,
+      "avg_loc": 4718
+    },
+    "svg": {
+      "sample_files": 8,
+      "avg_loc": 6
+    },
+    "py": {
+      "sample_files": 6,
+      "avg_loc": 48
+    },
+    "yml": {
+      "sample_files": 4,
+      "avg_loc": 65
+    }
+  }
+}
